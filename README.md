@@ -22,11 +22,11 @@
 This repository contains the first five C++ modules designed for Rank 4, aimed at helping you understand and master the fundamental concepts of the C++ programming language. Each module covers different aspects of C++ programming, including object-oriented programming, memory management, and data structures.
 
 ## Included Modules 📚
-Module 00: Introduction to C++ fundamentals.
-Module 01: Basic object-oriented programming concepts.
-Module 02: Advanced class structures and inheritance.
-Module 03: Memory management and smart pointers.
-Module 04: Data structures and algorithms.
+    Module 00: Introduction to C++ fundamentals.
+    Module 01: Basic object-oriented programming concepts.
+    Module 02: Advanced class structures and inheritance.
+    Module 03: Memory management and smart pointers.
+    Module 04: Data structures and algorithms.
 
 ## Usage ⚙️
 
