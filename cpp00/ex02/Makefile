@@ -1,6 +1,6 @@
-FILES       = PhoneBook Contact Main
+FILES       = Account tests
 
-NAME        = phonebook
+NAME        = bank
 
 CC          = c++
 CCFLAGS     = -Wall -Wextra -Werror -std=c++98

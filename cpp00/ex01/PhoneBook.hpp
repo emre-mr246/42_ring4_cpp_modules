@@ -5,20 +5,9 @@
 
 typedef std::string str;
 
-class PhoneBook {
-    public:
-        PhoneBook();
-        ~PhoneBook();
-
-        void add_contact();
-        void search_contact();
-
-    private:
-        static const int max_contacts = 8;
-        int currentContactIndex;
-        int currentContactCount;
-        Contact array[max_contacts];
-};
+#define RESET   "\033[0m"
+#define GREEN   "\033[42m"
+#define RED     "\033[41m"
 
 class	Contact {
 	public:
@@ -37,11 +26,32 @@ class	Contact {
 		str		getSecret() const;
 
 	private:
-        std::string firstName;
-        std::string lastName;
-        std::string nickname;
-        std::string phoneNumber;
-        std::string secret;
+        str firstName;
+        str lastName;
+        str nickname;
+        str phoneNumber;
+        str secret;
+};
+
+
+class PhoneBook {
+    public:
+        PhoneBook();
+        ~PhoneBook();
+
+        void add_contact();
+        void search_contact();
+
+        str truncate(const std::string& str);
+        bool is_valid_index(const std::string& ret, int index);
+        void print_contact_details(int index);
+        void display_contacts(int currentContactCount);
+
+    private:
+        static const int max_contacts = 8;
+        int currentContactIndex;
+        int currentContactCount;
+        Contact array[max_contacts];
 };
 
 #endif
