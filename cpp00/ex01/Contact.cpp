@@ -6,59 +6,71 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 00:19:14 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/10 14:19:45 by emgul            ###   ########.fr       */
+/*   Updated: 2024/10/10 17:03:51 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact() {
-    firstName = "";
-    lastName = "";
-    nickname = "";
-    phoneNumber = "";
-    secret = "";
+Contact::Contact()
+{
+	firstName = "";
+	lastName = "";
+	nickname = "";
+	phoneNumber = "";
+	secret = "";
 }
 
-Contact::~Contact() {}
-
-void Contact::setFirstName(const std::string& name) {
-    firstName = name;
+Contact::~Contact()
+{
 }
 
-void Contact::setLastName(const std::string& last) {
-    lastName = last;
+void Contact::setFirstName(const std::string &firstName)
+{
+	this->firstName = firstName;
 }
 
-void Contact::setNickname(const std::string& nick) {
-    nickname = nick;
+void Contact::setLastName(const std::string &lastName)
+{
+	this->lastName = lastName;
 }
 
-void Contact::setPhoneNumber(const std::string& phone) {
-    phoneNumber = phone;
+void Contact::setNickname(const std::string &nickname)
+{
+	this->nickname = nickname;
 }
 
-void Contact::setSecret(const std::string& secret) {
-    this->secret = secret;
+void Contact::setPhoneNumber(const std::string &phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
 }
 
-std::string Contact::getFirstName() const {
-    return (firstName);
+void Contact::setSecret(const std::string &secret)
+{
+	this->secret = secret;
 }
 
-std::string Contact::getLastName() const {
-    return (lastName);
+const str &Contact::getFirstName() const
+{
+	return (firstName);
 }
 
-std::string Contact::getNickname() const {
-    return (nickname);
+const str &Contact::getLastName() const
+{
+	return (lastName);
 }
 
-std::string Contact::getPhoneNumber() const {
-    return (phoneNumber);
+const str &Contact::getNickname() const
+{
+	return (nickname);
 }
 
-std::string Contact::getSecret() const {
-    return (secret);
+const str &Contact::getPhoneNumber() const
+{
+	return (phoneNumber);
 }
 
+const str &Contact::getSecret() const
+{
+	return (secret);
+}

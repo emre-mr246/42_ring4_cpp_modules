@@ -6,7 +6,7 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 00:05:30 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/10 15:46:51 by emgul            ###   ########.fr       */
+/*   Updated: 2024/10/10 17:04:05 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,34 @@ PhoneBook::~PhoneBook()
 
 void PhoneBook::add_contact()
 {
-	str line;
-	
-    if (this->contactCount < this->max_contacts)
+	str	line;
+
+	if (this->contactCount < this->max_contacts)
 	{
-        this->contactCount++;
+		this->contactCount++;
 	}
 	this->contactIndex++;
 	if (this->contactIndex >= this->contactCount)
 	{
-    	contactIndex = 0;
+		contactIndex = 0;
 	}
 	system("clear");
-	line = get_input("Type a name: ");
+	line = get_input("Please enter the first name: ");
 	this->array[this->contactIndex].setFirstName(line);
-	line = get_input("Type a surname: ");
+	line = get_input("Please enter the surname: ");
 	this->array[this->contactIndex].setLastName(line);
-	line = get_input("Type a nickname: ");
+	line = get_input("Please enter the nickname: ");
 	this->array[this->contactIndex].setNickname(line);
-	line = get_input("Type a phone number: ");
+	line = get_input("Please enter the phone number: ");
 	this->array[this->contactIndex].setPhoneNumber(line);
-	line = get_input("Type a dark secret: ");
+	line = get_input("Please enter a dark secret: ");
 	this->array[this->contactIndex].setSecret(line);
-    system("clear");
+	system("clear");
 }
 
 void PhoneBook::print_contact_details(int i)
 {
+	system("clear");
 	std::cout << "Name: " << this->array[i].getFirstName() << std::endl;
 	std::cout << "Lastname: " << this->array[i].getLastName() << std::endl;
 	std::cout << "Nickname: " << this->array[i].getNickname() << std::endl;
@@ -62,34 +63,30 @@ void PhoneBook::print_contact_details(int i)
 
 void PhoneBook::print_header()
 {
-	std::cout << RED 
-	<< std::setw(5) << "Index" << "|" 
-	<< std::setw(10) << "Firstname" << "|"
-	<< std::setw(10) << "Lastname" << "|"
-	<< std::setw(10) << "Nickname" << "|"
-	<< RESET << std::endl;
+	std::cout << RED << std::setw(5) << "Index"
+				<< "|" << std::setw(10) << "Firstname"
+				<< "|" << std::setw(10) << "Lastname"
+				<< "|" << std::setw(10) << "Nickname"
+				<< "|" << RESET << std::endl;
 }
 
 void PhoneBook::display_contacts(int contactCount)
 {
-	int i;
+	int	i;
 
 	print_header();
 	i = 0;
 	while (i < contactCount)
 	{
-		std::cout << GREEN << std::setw(5) << i << "|"
-		<< std::setw(10) << truncate(array[i].getFirstName()) << "|"
-		<< std::setw(10) << truncate(array[i].getLastName()) << "|" 
-		<< std::setw(10) << truncate(array[i].getNickname()) << "|" 
-		<< RESET << std::endl;
+		std::cout << GREEN << std::setw(5) << i << "|" << std::setw(10) << truncate(array[i].getFirstName()) << "|" << std::setw(10) << truncate(array[i].getLastName()) << "|" << std::setw(10) << truncate(array[i].getNickname()) << "|" << RESET << std::endl;
 		i++;
 	}
+	std::cout << std::endl;
 }
 
 void PhoneBook::search_contact()
 {
-	str line;
+	str	line;
 	int	i;
 
 	system("clear");
@@ -100,8 +97,7 @@ void PhoneBook::search_contact()
 		return ;
 	}
 	display_contacts(contactCount);
-	std::cout << std::endl;
-	line = get_input("Type a index: ");
+	line = get_input("Please enter an index: ");
 	i = atoi(line.c_str());
 	if (!is_valid_index(line, i))
 	{
@@ -109,8 +105,7 @@ void PhoneBook::search_contact()
 		sleep(1);
 		return ;
 	}
-	system("clear");
 	print_contact_details(i);
-	std::cout << std::endl << "Press a key to continue..." << std::endl;
+	std::cout << std::endl << "Press any key to continue..." << std::endl;
 	getchar();
 }

@@ -1,2 +1,4 @@
 .vscode
 *.o
+node_modules
+.obj
