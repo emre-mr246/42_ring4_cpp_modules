@@ -1,4 +1,4 @@
-FILES       = PhoneBook Contact Main
+FILES       = PhoneBook Contact Main Utils
 
 NAME        = phonebook
 

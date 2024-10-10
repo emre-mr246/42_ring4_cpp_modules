@@ -6,18 +6,21 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 00:19:14 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/08 00:27:07 by emgul            ###   ########.fr       */
+/*   Updated: 2024/10/10 14:19:45 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact() 
-    : firstName(""), lastName(""), nickname(""), phoneNumber(""), secret("") {
+Contact::Contact() {
+    firstName = "";
+    lastName = "";
+    nickname = "";
+    phoneNumber = "";
+    secret = "";
 }
 
 Contact::~Contact() {}
-
 
 void Contact::setFirstName(const std::string& name) {
     firstName = name;
@@ -58,3 +61,4 @@ std::string Contact::getPhoneNumber() const {
 std::string Contact::getSecret() const {
     return (secret);
 }
+
