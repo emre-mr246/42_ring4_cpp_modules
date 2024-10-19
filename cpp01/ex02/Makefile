@@ -1,6 +1,6 @@
 FILES       = main
 
-NAME        = zombie_horde
+NAME        = this_is_brain
 
 CC          = c++
 CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic
