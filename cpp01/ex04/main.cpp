@@ -14,8 +14,11 @@
 
 int main(int ac, char **av)
 {
-	if (ac != 4 || av[1][0] ||!av[2][0] || !av[3][0])
+	if (ac != 4)
+	{
+		std::cerr << "An known error occured!" << std::endl;
 		return (-1);
+	}
 	replace(av[1], av[2], av[3]);
 	return (0);
 }
