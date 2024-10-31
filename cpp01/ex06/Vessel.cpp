@@ -39,10 +39,24 @@ void Vessel::complain(std::string level)
     while (i < 4)
 	{
         if (levels[i] == level)
-		{
-            (this->*ptrComplain[i])();
-            return ;
-        }
+            break ;
         i++;
     }
+	switch(i)
+	{
+		case(0):
+			(this->*ptrComplain[0])();
+			__attribute__ ((fallthrough));
+		case(1):
+			(this->*ptrComplain[1])();
+			__attribute__ ((fallthrough));
+		case(2):
+			(this->*ptrComplain[2])();
+			__attribute__ ((fallthrough));
+		case(3):
+			(this->*ptrComplain[3])();
+			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }
