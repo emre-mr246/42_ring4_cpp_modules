@@ -1,4 +1,4 @@
-FILES       = main Zombie newZombie randomChump
+FILES       = main Fixed
 
 NAME        = fixed
 
