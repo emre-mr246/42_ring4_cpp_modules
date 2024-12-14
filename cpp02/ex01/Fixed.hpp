@@ -6,22 +6,22 @@
 class Fixed
 {
 public:
-	Fixed(void);
-	Fixed(const int value);
-	Fixed(const float value);
-	~Fixed(void);
+	Fixed();
+	Fixed(const int number);
+	Fixed(const float number);
 	Fixed(Fixed const &copy);
-	Fixed &operator=(Fixed const &copy);
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-	float toFloat(void) const;
-	int toInt(void) const;
+	~Fixed();
+	Fixed &operator=(const Fixed &src);
+	int getRawBits() const;
+	void setRawBits(const int raw);
+	float toFloat() const;
+	int toInt() const;
 
 private:
 	int _value;
 	static const int _numFracBits;
 };
 
-std::ostream &operator<<(std::ostream &str, Fixed const &fixed_nbr);
+std::ostream &operator<<(std::ostream &ostream, Fixed const &number);
 
 #endif

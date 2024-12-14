@@ -85,7 +85,6 @@ Fixed Fixed::operator++()
 Fixed Fixed::operator++(int)
 {
 	Fixed tmp(*this);
-	
 	this->_value++;
 	return (tmp);
 }
@@ -103,9 +102,14 @@ Fixed Fixed::operator--(int)
 	return (tmp);
 }
 
-float Fixed::toFloat() const
+float Fixed::toFloat(void) const
 {
 	return ((float)_value / (1 << this->_numFracBits));
+}
+
+int Fixed::toInt(void) const
+{
+	return (_value >> this->_numFracBits);
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
@@ -144,14 +148,4 @@ std::ostream &operator<<(std::ostream &ostream, const Fixed &number)
 {
 	ostream << number.toFloat();
 	return (ostream);
-}
-
-int Fixed::getRawBits(void) const
-{
-	return (this->_value);
-}
-
-void Fixed::setRawBits(int const raw)
-{
-	this->_value = raw;
 }

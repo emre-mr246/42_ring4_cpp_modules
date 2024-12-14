@@ -31,8 +31,6 @@ public:
 	static const Fixed &max(Fixed const &first, const Fixed &second);
 	float toFloat() const;
 	int toInt() const;
-	int getRawBits() const;
-	void setRawBits(const int raw);
 
 private:
 	int _value;

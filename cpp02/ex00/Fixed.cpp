@@ -2,9 +2,10 @@
 
 const int Fixed::_numFracBits = 8;
 
-Fixed::Fixed(void) : _value(0)
+Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->_value = 0;
 }
 
 Fixed::~Fixed(void)
@@ -12,10 +13,10 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const &copy)
+Fixed::Fixed(const Fixed &number)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	this->_value = number._value;
 }
 
 Fixed &Fixed::operator=(const Fixed &copy)
