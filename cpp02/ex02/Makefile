@@ -20,7 +20,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)%.o: %.cpp
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CCFLAGS) -c -o $@ $< 
+	@$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJS)
