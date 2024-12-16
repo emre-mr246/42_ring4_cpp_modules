@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const std::string &name)
 	this->_health = 10;
 }
 
-ClapTrap::~ClapTrap(void)
+ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called for [ClapTrap]" << this->_name << std::endl;
 }

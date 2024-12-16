@@ -1,6 +1,6 @@
-FILES       = main ClapTrap
+FILES       = main ClapTrap ScavTrap
 
-NAME        = ClapTrap
+NAME        = ScavTrap
 
 CC          = c++
 CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic
