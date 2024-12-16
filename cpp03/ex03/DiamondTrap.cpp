@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap()
+DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "Constructor called for [Empty DiamondTrap]" << "Frank" << std::endl;
 	this->_name = "Frank_clap_name";
@@ -34,11 +34,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src), ScavTrap(src), 
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = src._name;
-	this->_attackDamage = src._attackDamage;
-	this->_energy = src._energy;
-	this->_health = src._health;
+	std::cout << "Assignment operator for DiamondTrap called." << std::endl;
+	ScavTrap::operator=(src);
 	return (*this);
 }
 

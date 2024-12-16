@@ -27,20 +27,17 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src)
 {
-	this->_name = "Clone";
-	this->_attackDamage = 0;
-	this->_energy = 10;
-	this->_health = 10;
-	std::cout << "Copy constructor called for [ScavTrap]" << src._name << std::endl;
+	this->_name = src._name + "_clone";
+	this->_attackDamage = 20;
+	this->_energy = 50;
+	this->_health = 100;
+	std::cout << "Copy constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = src._name;
-	this->_attackDamage = src._attackDamage;
-	this->_energy = src._energy;
-	this->_health = src._health;
+	std::cout << "Copy assignment operator called for [ScavTrap]" << src._name + "_assigned"<< std::endl;
+	ClapTrap::operator=(src);
 	return (*this);
 }
 

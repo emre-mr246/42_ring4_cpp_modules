@@ -2,11 +2,11 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Constructor called for [Empty ClapTrap]" << "Frank" << std::endl;
 	this->_name = "Frank";
 	this->_attackDamage = 0;
 	this->_energy = 1;
 	this->_health = 1;
+	std::cout << "Constructor called for [Empty ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name)
@@ -18,27 +18,27 @@ ClapTrap::ClapTrap(const std::string &name)
 	this->_health = 10;
 }
 
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap(void)
 {
 	std::cout << "Destructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	this->_name = "Clone";
+	this->_name = src._name + "_clone";
 	this->_attackDamage = 0;
 	this->_energy = 10;
 	this->_health = 10;
-	std::cout << "Copy constructor called for [ClapTrap]" << src._name << std::endl;
+	std::cout << "Copy constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = src._name;
-	this->_attackDamage = src._attackDamage;
+	this->_name = src._name + "_assigned";
 	this->_energy = src._energy;
 	this->_health = src._health;
+	this->_attackDamage = src._attackDamage;
+	std::cout << "Copy assignment operator called for [ClapTrap]" << src._name + "_assigned"<< std::endl;
 	return (*this);
 }
 
@@ -46,7 +46,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_energy > 0)
 	{
-		std::cout << "[ClapTrap]" << this->_name << " attacks [ClapTrap]" << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
+		std::cout << "[ClapTrap]" << this->_name << " attacks [Dummy]" << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
 		this->_energy--;
 	}
 	else

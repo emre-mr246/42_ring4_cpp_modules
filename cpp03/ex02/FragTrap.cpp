@@ -25,20 +25,17 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &src): ClapTrap(src)
 {
-	this->_name = "Clone";
-	this->_attackDamage = 0;
-	this->_energy = 10;
-	this->_health = 10;
+	this->_name = src._name + "_clone";
+	this->_attackDamage = 30;
+	this->_energy = 100;
+	this->_health = 100;
 	std::cout << "Copy constructor called for [FragTrap]" << src._name << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_name = src._name;
-	this->_attackDamage = src._attackDamage;
-	this->_energy = src._energy;
-	this->_health = src._health;
+	std::cout << "Copy assignment operator called for [FragTrap]" << src._name + "_assigned"<< std::endl;
+	ClapTrap::operator=(src);
 	return (*this);
 }
 

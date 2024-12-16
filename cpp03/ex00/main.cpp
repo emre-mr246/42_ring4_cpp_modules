@@ -2,21 +2,23 @@
 
 int main()
 {
-	ClapTrap emre("Emre");
-	ClapTrap hakan(emre);
-	ClapTrap beril;
+	ClapTrap a("Emre");
+	ClapTrap b(a);
+	ClapTrap c;
+	c = a;
 
-	beril = emre;
+	std::cout << std::endl;
+	a.takeDamage(12);
+	a.beRepaired(3);
+	a.beRepaired(123);
+	a.attack("Hakan");
 
-	emre.takeDamage(5);
-	emre.takeDamage(5);
-	emre.beRepaired(3);
-	emre.beRepaired(123);
-	emre.attack("Hakan");
-
-	hakan.takeDamage(3);
+	std::cout << std::endl;
+	b.attack("Hakan");
+	b.takeDamage(3);
 	
-	beril.attack("Hakan");
-	beril.beRepaired(3);
+	std::cout << std::endl;
+	c.attack("Hakan");
+	c.beRepaired(3);
 	return (0);
 }

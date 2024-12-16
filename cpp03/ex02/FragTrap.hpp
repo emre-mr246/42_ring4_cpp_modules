@@ -15,8 +15,6 @@ public:
 	FragTrap(const FragTrap &copy);
 	FragTrap &operator=(const FragTrap &copy);
     void highFivesGuys(void);
-private:
-
 };
 
 #endif
