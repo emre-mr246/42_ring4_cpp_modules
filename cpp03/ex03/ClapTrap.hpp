@@ -1,0 +1,27 @@
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
+
+#pragma once
+
+#include <iostream>
+
+class ClapTrap
+{
+public:
+	ClapTrap();	
+	ClapTrap(const std::string &name);
+	~ClapTrap();
+	ClapTrap(const ClapTrap &copy);
+	ClapTrap &operator=(const ClapTrap &copy);
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+
+protected:
+	std::string _name;
+	unsigned int _health;
+	unsigned int _energy;
+	unsigned int _attackDamage;
+};
+
+#endif
