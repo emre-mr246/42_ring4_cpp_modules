@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class DiamondTrap: public virtual ScavTrap, public virtual FragTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {
 public:
 	DiamondTrap();	

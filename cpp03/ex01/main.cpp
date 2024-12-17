@@ -25,5 +25,6 @@ int main()
 	a.guardGate();
 	a.changeGatekeeperMode();
 	a.guardGate();
+	a.changeGatekeeperMode();
 	a.beRepaired(4);
 }

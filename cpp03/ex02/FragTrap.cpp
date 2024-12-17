@@ -23,7 +23,7 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor called for [FragTrap]" << this->_name << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &src): ClapTrap(src)
+FragTrap::FragTrap(const FragTrap &src): ClapTrap(src._name + "_clone_base")
 {
 	this->_name = src._name + "_clone";
 	this->_attackDamage = 30;
@@ -42,7 +42,7 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 void FragTrap::highFivesGuys(void)
 {
     if (this->_health > 0 && this->_energy > 0)
-        std::cout << "[FragTrap] *High five* for guarding the gate like a true hero!" << std::endl;
+        std::cout << "[FragTrap]" << this->_name << " *High five* for guarding the gate like a true hero!" << std::endl;
     else
         std::cout << "Not enough energy or FragTrap is dead." << std::endl;
     return ;

@@ -17,7 +17,7 @@ public:
     void guardGate();
 	void changeGatekeeperMode();
 
-protected:
+private:
 	bool _gatekeeperMode;
 };
 

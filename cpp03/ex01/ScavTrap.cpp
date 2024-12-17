@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
 	std::cout << "Constructor called for [Empty ScavTrap]" << "Frank" << std::endl;
 	this->_name = "Frank";
@@ -25,13 +25,13 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor called for [ScavTrap]" << this->_name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src)
+ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name + "_clone_base")
 {
 	this->_name = src._name + "_clone";
 	this->_attackDamage = 20;
 	this->_energy = 50;
 	this->_health = 100;
-	std::cout << "Copy constructor called for [ClapTrap]" << this->_name << std::endl;
+	std::cout << "Copy constructor called for [ScavTrap]" << this->_name << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
@@ -65,4 +65,8 @@ void ScavTrap::guardGate()
 void ScavTrap::changeGatekeeperMode()
 {
 	this->_gatekeeperMode = !this->_gatekeeperMode;
+	if (_gatekeeperMode)
+		std::cout << "[ScavTrap]" << this->_name << " - Gatekeeper mode activated." << std::endl;
+	else
+		std::cout << "[ScavTrap]" << this->_name << " - Gatekeeper mode disabled." << std::endl;
 }

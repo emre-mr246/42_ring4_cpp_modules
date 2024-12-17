@@ -1,4 +1,4 @@
-FILES       = main ClapTrap ScavTrap FragTrap
+FILES       = main ClapTrap FragTrap
 
 NAME        = FragTrap
 
