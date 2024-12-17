@@ -7,6 +7,10 @@ int main()
 	ScavTrap c;
 	c = a;
 
+	a.printStats();
+	b.printStats();
+	c.printStats();
+
 	std::cout << std::endl;
 	a.takeDamage(12);
 	a.beRepaired(3);
@@ -27,4 +31,7 @@ int main()
 	a.guardGate();
 	a.changeGatekeeperMode();
 	a.beRepaired(4);
+		
+	std::cout << std::endl;
+	return (0);
 }

@@ -3,7 +3,7 @@ FILES       = main ClapTrap ScavTrap
 NAME        = ScavTrap
 
 CC          = c++
-CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic
+CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
 RM          = rm -rf
 
 OBJ_DIR     = .obj/

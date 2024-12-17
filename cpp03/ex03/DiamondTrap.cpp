@@ -2,20 +2,21 @@
 
 DiamondTrap::DiamondTrap()
 {
-	std::cout << "Constructor called for [Empty DiamondTrap]" << "Frank" << std::endl;
-	this->_name = "Frank";
-	this->_attackDamage = 0;
-	this->_energy = 1;
-	this->_health = 1;
-}
-
-DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name), ScavTrap(name), FragTrap(name)
-{
-	std::cout << "Constructor called for [DiamondTrap]" << name << std::endl;
-	this->_name = ClapTrap::_name + "_clap_name";
+	this->_name = "Default";
 	this->_attackDamage = FragTrap::_attackDamage;
 	this->_energy = ScavTrap::_energy;
 	this->_health = FragTrap::_health;
+	ClapTrap::_name = this->_name + "_clap_name";
+	std::cout << "Default constructor called for [DiamondTrap]" << this->_name << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+{
+	this->_name = name;
+	this->_attackDamage = FragTrap::_attackDamage;
+	this->_energy = ScavTrap::_energy;
+	this->_health = FragTrap::_health;
+	std::cout << "Constructor called for [DiamondTrap]" << this->_name << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
@@ -23,7 +24,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "Destructor called for [DiamondTrap]" << this->_name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src._name + "_clone_base"), ScavTrap(src._name + "_clone_base"), FragTrap(src._name + "_clone_base")
+DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src._name + "_clap_name"), ScavTrap(src._name), FragTrap(src._name)
 {
 	this->_name = src._name;
 	this->_attackDamage = FragTrap::_attackDamage;

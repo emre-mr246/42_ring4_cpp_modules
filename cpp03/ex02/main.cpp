@@ -25,4 +25,7 @@ int main()
 	a.highFivesGuys();
 	b.highFivesGuys();
 	c.highFivesGuys();
+		
+	std::cout << std::endl;
+	return (0);
 }

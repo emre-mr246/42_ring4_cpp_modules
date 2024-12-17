@@ -7,6 +7,11 @@ int main()
 	DiamondTrap c;
 	c = a;
 
+	a.printStats();
+	b.printStats();
+	b.whoAmI();
+	c.printStats();
+
 	std::cout << std::endl;
 	a.takeDamage(12);
 	a.beRepaired(3);
@@ -24,6 +29,5 @@ int main()
 	std::cout << std::endl;
 	a.whoAmI();
 	
-	std::cout << std::endl;
 	return (0);
 }

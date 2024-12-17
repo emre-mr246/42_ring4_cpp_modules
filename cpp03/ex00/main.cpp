@@ -7,6 +7,10 @@ int main()
 	ClapTrap c;
 	c = a;
 
+	a.printStats();
+	b.printStats();
+	c.printStats();
+	
 	std::cout << std::endl;
 	a.takeDamage(12);
 	a.beRepaired(3);
@@ -20,5 +24,7 @@ int main()
 	std::cout << std::endl;
 	c.attack("Hakan");
 	c.beRepaired(3);
+		
+	std::cout << std::endl;
 	return (0);
 }

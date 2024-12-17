@@ -2,20 +2,20 @@
 
 ClapTrap::ClapTrap()
 {
-	this->_name = "Frank";
-	this->_attackDamage = 0;
-	this->_energy = 1;
-	this->_health = 1;
-	std::cout << "Constructor called for [Empty ClapTrap]" << this->_name << std::endl;
+	this->_name = "Default";
+	this->_attackDamage = 20;
+	this->_energy = 50;
+	this->_health = 100;
+	std::cout << "Default constructor called for [ClapTrap]Default" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name)
 {
-	std::cout << "Constructor called for [ClapTrap]" << name << std::endl;
 	this->_name = name;
-	this->_attackDamage = 0;
-	this->_energy = 10;
-	this->_health = 10;
+	this->_attackDamage = 20;
+	this->_energy = 50;
+	this->_health = 100;
+	std::cout << "Constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -25,20 +25,17 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	this->_name = src._name + "_clone";
-	this->_attackDamage = 0;
-	this->_energy = 10;
-	this->_health = 10;
+	*this = src;
 	std::cout << "Copy constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
-	this->_name = src._name + "_assigned";
+	this->_name = src._name;
 	this->_energy = src._energy;
 	this->_health = src._health;
 	this->_attackDamage = src._attackDamage;
-	std::cout << "Copy assignment operator called for [ClapTrap]" << src._name + "_assigned"<< std::endl;
+	std::cout << "Copy assignment operator called for [ClapTrap]" << this->_name << std::endl;
 	return (*this);
 }
 
@@ -46,7 +43,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_energy > 0)
 	{
-		std::cout << "[ClapTrap]" << this->_name << " attacks [Dummy]" << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
+		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
 		this->_energy--;
 	}
 	else
@@ -67,9 +64,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energy > 0)
 	{
 		if (this->_health == 0)
-			std::cout << "[ClapTrap]" << this->_name <<  " is rebooting itself!" << std::endl;
+			std::cout << this->_name <<  " is rebooting itself!" << std::endl;
 		else
-			std::cout << "[ClapTrap]" << this->_name << " is repairing itself!" << std::endl;
+			std::cout << this->_name << " is repairing itself!" << std::endl;
 		if (this->_health + amount > 10)
 			this->_health = 10;
 		else
@@ -78,4 +75,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "Not enough energy!" << std::endl;
+}
+
+void ClapTrap::printStats()
+{
+	std::cout << this->_name << "[H:" << this->_health << "/E:"<< this->_energy << "/D:" << this->_attackDamage << "]" << std::endl;
 }

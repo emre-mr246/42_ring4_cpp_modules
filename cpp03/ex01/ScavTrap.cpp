@@ -3,20 +3,12 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "Constructor called for [Empty ScavTrap]" << "Frank" << std::endl;
-	this->_name = "Frank";
-	this->_attackDamage = 0;
-	this->_energy = 1;
-	this->_health = 1;
 	this->_gatekeeperMode = false;
 }
 
 ScavTrap::ScavTrap(const std::string &name): ClapTrap(name)
 {
 	std::cout << "Constructor called for [ScavTrap]" << name << std::endl;
-	this->_name = name;
-	this->_attackDamage = 20;
-	this->_energy = 50;
-	this->_health = 100;
 	this->_gatekeeperMode = false;
 }
 
@@ -25,12 +17,8 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor called for [ScavTrap]" << this->_name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name + "_clone_base")
+ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name)
 {
-	this->_name = src._name + "_clone";
-	this->_attackDamage = 20;
-	this->_energy = 50;
-	this->_health = 100;
 	std::cout << "Copy constructor called for [ScavTrap]" << this->_name << std::endl;
 }
 
