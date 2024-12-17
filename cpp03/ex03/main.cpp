@@ -22,8 +22,8 @@ int main()
 	c.beRepaired(3);
 
 	std::cout << std::endl;
-	a.guardGate();
-	a.changeGatekeeperMode();
-	a.guardGate();
-	a.beRepaired(4);
+	a.whoAmI();
+	
+	std::cout << std::endl;
+	return (0);
 }
