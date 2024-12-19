@@ -35,8 +35,12 @@ DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src._name + "_clap_na
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 {
-	std::cout << "Assignment operator for DiamondTrap called." << std::endl;
-	ScavTrap::operator=(src);
+	this->_name = src._name;
+	this->_energy = src._energy;
+	this->_health = src._health;
+	this->_attackDamage = src._attackDamage;
+	this->_gatekeeperMode = src._gatekeeperMode;
+	std::cout << "Copy assignment operator called for [ScavTrap]" << src._name << std::endl;
 	return (*this);
 }
 

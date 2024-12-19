@@ -24,8 +24,12 @@ ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
-	std::cout << "Copy assignment operator called for [ScavTrap]" << src._name + "_assigned"<< std::endl;
-	ClapTrap::operator=(src);
+	this->_name = src._name;
+	this->_energy = src._energy;
+	this->_health = src._health;
+	this->_attackDamage = src._attackDamage;
+	this->_gatekeeperMode = src._gatekeeperMode;
+	std::cout << "Copy assignment operator called for [ScavTrap]" << src._name << std::endl;
 	return (*this);
 }
 

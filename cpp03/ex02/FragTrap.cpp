@@ -2,11 +2,17 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {
+	this->_health = 100;
+	this->_energy = 100;
+	this->_attackDamage = 30;
 	std::cout << "Constructor called for [Empty FragTrap]" << "Frank" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name): ClapTrap(name)
 {
+	this->_health = 100;
+	this->_energy = 100;
+	this->_attackDamage = 30;
 	std::cout << "Constructor called for [FragTrap]" << name << std::endl;
 }
 
@@ -22,8 +28,11 @@ FragTrap::FragTrap(const FragTrap &src): ClapTrap(src._name)
 
 FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	std::cout << "Copy assignment operator called for [FragTrap]" << src._name + "_assigned"<< std::endl;
-	ClapTrap::operator=(src);
+	this->_name = src._name;
+	this->_energy = src._energy;
+	this->_health = src._health;
+	this->_attackDamage = src._attackDamage;
+	std::cout << "Copy assignment operator called for [FragTrap]" << src._name << std::endl;
 	return (*this);
 }
 
