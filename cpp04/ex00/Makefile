@@ -1,4 +1,4 @@
-FILES       = main Animal Cat Dog
+FILES       = main Animal Cat Dog WrongAnimal WrongCat
 
 NAME        = animal
 

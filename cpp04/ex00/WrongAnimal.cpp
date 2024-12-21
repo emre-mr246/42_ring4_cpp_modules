@@ -1,30 +1,30 @@
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat(void)
+WrongAnimal::WrongAnimal(void)
 {
-    this->_type = "Cat";
+    this->_type = "WrongAnimal";
 	std::cout << "Default constructor called for " << this->_type << std::endl;
 }
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << "Destructor called for " << this->_type << std::endl;
 }
 
-Cat::Cat(const Cat &src): Animal()
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
 	*this = src;
 	std::cout << "Copy constructor called for " << this->_type << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
 	this->_type = src._type;
 	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
 	return (*this);
 }
 
-void Cat::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
-	std::cout << this->_type << ": ** Meow! **" << std::endl;
+	std::cout << this->_type << ": WrongAnimal class's makeSound() function called." << std::endl;
 }
