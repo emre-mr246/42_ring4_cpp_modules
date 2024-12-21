@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -14,6 +15,9 @@ public:
 	WrongCat(const WrongCat &src);
 	WrongCat &operator=(const WrongCat &src);
 	void makeSound(void) const;
+
+private:
+	Brain *_brain;
 };
 
 #endif

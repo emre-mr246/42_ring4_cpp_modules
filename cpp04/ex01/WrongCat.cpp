@@ -2,12 +2,20 @@
 
 WrongCat::WrongCat(void)
 {
-	this->_type = "WrongCat";
 	std::cout << "Default constructor called for " << this->_type << std::endl;
+	this->_type = "WrongCat";
+	this->_brain = new Brain();
+	if (!this->_brain)
+	{
+		std::cerr << "Brain allocation failed for WrongCat!" << std::endl;
+		return ;
+	}
 }
 
 WrongCat::~WrongCat()
 {
+	if (this->_brain)
+        delete (this->_brain);
 	std::cout << "Destructor called for " << this->_type << std::endl;
 }
 
