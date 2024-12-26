@@ -23,7 +23,7 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &src): ClapTrap(src._name)
 {
-	this->operator=(src);
+	*this = src;
 	std::cout << "Copy constructor called for [FragTrap]" << src._name << std::endl;
 }
 

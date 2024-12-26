@@ -1,4 +1,4 @@
-FILES       = main ICharacter Character Amateria Cure Ice
+FILES       = main AMateria Character Cure Ice MateriaSource
 
 NAME        = Witcher1_ManHunt.exe
 

@@ -19,7 +19,7 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name)
 {
-	this->operator=(src);
+	*this = src;
 	std::cout << "Copy constructor called for [ScavTrap]" << this->_name << std::endl;
 }
 

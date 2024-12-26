@@ -1,15 +1,15 @@
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
 #include "AMateria.hpp"
 
-class Cure : public AMateria
+class Ice : public AMateria
 {
 public:
-    Cure();
-    ~Cure();
-    Cure(const Cure &ref);
-    Cure &operator=(const Cure &ref);
+    Ice();
+    ~Ice();
+    Ice(const Ice &ref);
+    Ice &operator=(const Ice &ref);
     const std::string &getType() const;
     AMateria *clone(void) const;
     void use(ICharacter &src);

@@ -19,6 +19,7 @@ public:
 	void changeGatekeeperMode();
 
 protected:
+	unsigned int _energy;
 	bool _gatekeeperMode;
 };
 

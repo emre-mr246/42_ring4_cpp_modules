@@ -1,7 +1,13 @@
 #include "AMateria.hpp"
 
+AMateria::AMateria(void)
+{
+    std::cout << "Default constructor called for ICharacter." << std::endl;
+}
+
 AMateria::AMateria(std::string const & type)
 {
+    this->_type = type;
     std::cout << "Default constructor called for ICharacter." << std::endl;
 }
 
@@ -26,4 +32,9 @@ AMateria &AMateria::operator=(const AMateria &src)
 std::string const & AMateria::getType() const
 {
     return (this->_type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "AMateria used on " << target.getName() << "." << std::endl;
 }
