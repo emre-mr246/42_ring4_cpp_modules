@@ -3,18 +3,18 @@
 ClapTrap::ClapTrap()
 {
 	this->_name = "Default";
-	this->_attackDamage = 20;
-	this->_energy = 50;
 	this->_health = 100;
-	std::cout << "Default constructor called for [ClapTrap]Default" << std::endl;
+	this->_energy = 50;
+	this->_attackDamage = 20;
+	std::cout << "Default constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name)
 {
 	this->_name = name;
-	this->_attackDamage = 20;
-	this->_energy = 50;
 	this->_health = 100;
+	this->_energy = 50;
+	this->_attackDamage = 20;
 	std::cout << "Constructor called for [ClapTrap]" << this->_name << std::endl;
 }
 
@@ -67,8 +67,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << this->_name <<  " is rebooting itself!" << std::endl;
 		else
 			std::cout << this->_name << " is repairing itself!" << std::endl;
-		if (this->_health + amount > 10)
-			this->_health = 10;
+		if (this->_health + amount > 100)
+			this->_health = 100;
 		else
 			this->_health += amount;
 		this->_energy--;

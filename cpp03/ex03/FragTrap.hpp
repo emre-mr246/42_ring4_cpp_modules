@@ -6,7 +6,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap: public virtual ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 public:
 	FragTrap();	
@@ -15,6 +15,7 @@ public:
 	FragTrap(const FragTrap &copy);
 	FragTrap &operator=(const FragTrap &copy);
     void highFivesGuys(void);
+	void beRepaired(unsigned int amount);
 };
 
 #endif

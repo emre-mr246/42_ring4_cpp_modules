@@ -17,7 +17,10 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void printStats();
-
+	void setHealth(unsigned int amount);
+	void setEnergy(unsigned int amount);
+	void setDamage(unsigned int amount);
+	
 protected:
 	std::string _name;
 	unsigned int _health;

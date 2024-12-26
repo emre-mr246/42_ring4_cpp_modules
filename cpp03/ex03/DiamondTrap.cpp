@@ -1,21 +1,21 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(): ClapTrap("default_clap_name")
 {
 	this->_name = "Default";
-	this->_attackDamage = FragTrap::_attackDamage;
-	this->_energy = ScavTrap::_energy;
 	this->_health = FragTrap::_health;
-	ClapTrap::_name = this->_name + "_clap_name";
+	this->_energy = ScavTrap::_energy;
+	this->_attackDamage = FragTrap::_attackDamage;
 	std::cout << "Default constructor called for [DiamondTrap]" << this->_name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name")
 {
 	this->_name = name;
-	this->_attackDamage = FragTrap::_attackDamage;
-	this->_energy = ScavTrap::_energy;
 	this->_health = FragTrap::_health;
+	this->_energy = ScavTrap::_energy;
+	this->_attackDamage = FragTrap::_attackDamage;
+
 	std::cout << "Constructor called for [DiamondTrap]" << this->_name << std::endl;
 }
 
@@ -26,10 +26,7 @@ DiamondTrap::~DiamondTrap()
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src): ClapTrap(src._name + "_clap_name"), ScavTrap(src._name), FragTrap(src._name)
 {
-	this->_name = src._name;
-	this->_attackDamage = FragTrap::_attackDamage;
-	this->_energy = ScavTrap::_energy;
-	this->_health = FragTrap::_health;
+	*this = src;
 	std::cout << "Copy constructor called for [DiamondTrap]" << this->_name << std::endl;
 }
 
@@ -48,4 +45,9 @@ void DiamondTrap::whoAmI()
 {
     std::cout << "I am " << this->_name << std::endl;
     std::cout << "My ClapTrap name is " << ClapTrap::_name << std::endl;
+}
+
+void DiamondTrap::printStats()
+{
+	std::cout << this->_name << "[H:" << this->_health << "/E:"<< this->_energy << "/D:" << this->_attackDamage << "]" << std::endl;
 }

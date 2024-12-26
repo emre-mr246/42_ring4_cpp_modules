@@ -1,8 +1,8 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "Constructor called for [Empty ScavTrap]" << "Frank" << std::endl;
+	std::cout << "Constructor called for [ScavTrap]" << this->_name << std::endl;
 	this->_gatekeeperMode = false;
 }
 
@@ -19,18 +19,30 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src._name)
 {
+	this->operator=(src);
 	std::cout << "Copy constructor called for [ScavTrap]" << this->_name << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
 	this->_name = src._name;
-	this->_energy = src._energy;
 	this->_health = src._health;
+	this->_energy = src._energy;
 	this->_attackDamage = src._attackDamage;
 	this->_gatekeeperMode = src._gatekeeperMode;
 	std::cout << "Copy assignment operator called for [ScavTrap]" << src._name << std::endl;
 	return (*this);
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->_energy > 0)
+	{
+		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energy--;
+	}
+	else
+		std::cout << "Not enough energy!" << std::endl;
 }
 
 void ScavTrap::guardGate()

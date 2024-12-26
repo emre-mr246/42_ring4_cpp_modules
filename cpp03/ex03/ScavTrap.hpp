@@ -6,7 +6,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap: public virtual ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 public:
 	ScavTrap();	
@@ -14,6 +14,7 @@ public:
 	~ScavTrap();
 	ScavTrap(const ScavTrap &copy);
 	ScavTrap &operator=(const ScavTrap &copy);
+	void attack(const std::string& target);
     void guardGate();
 	void changeGatekeeperMode();
 

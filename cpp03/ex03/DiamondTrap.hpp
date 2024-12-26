@@ -18,6 +18,7 @@ public:
 	DiamondTrap(const DiamondTrap &copy);
 	DiamondTrap &operator=(const DiamondTrap &copy);
     void whoAmI();
+	void printStats();
 
 private:
     std::string _name;

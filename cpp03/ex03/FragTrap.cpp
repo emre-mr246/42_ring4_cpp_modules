@@ -5,7 +5,7 @@ FragTrap::FragTrap(): ClapTrap()
 	this->_health = 100;
 	this->_energy = 100;
 	this->_attackDamage = 30;
-	std::cout << "Constructor called for [Empty FragTrap]" << "Frank" << std::endl;
+	std::cout << "Constructor called for [FragTrap]" << this->_name << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name): ClapTrap(name)
@@ -23,6 +23,7 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &src): ClapTrap(src._name)
 {
+	*this = src;
 	std::cout << "Copy constructor called for [FragTrap]" << src._name << std::endl;
 }
 
@@ -35,6 +36,35 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 	std::cout << "Copy assignment operator called for [FragTrap]" << src._name << std::endl;
 	return (*this);
 }
+
+void FragTrap::beRepaired(unsigned int amount)
+{
+	if (this->_energy > 0)
+	{
+		if (this->_health == 0)
+			std::cout << this->_name <<  " is rebooting itself!" << std::endl;
+		else
+			std::cout << this->_name << " is repairing itself!" << std::endl;
+		if (this->_health + amount > 100)
+			this->_health = 100;
+		else
+			this->_health += amount;
+		this->_energy--;
+	}
+	else
+		std::cout << "Not enough energy!" << std::endl;
+}
+
+// void FragTrap::attack(const std::string& target)
+// {
+// 	if (this->_energy > 0)
+// 	{
+// 		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
+// 		this->_energy--;
+// 	}
+// 	else
+// 		std::cout << "Not enough energy!" << std::endl;
+// }
 
 void FragTrap::highFivesGuys(void)
 {
