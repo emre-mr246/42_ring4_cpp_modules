@@ -13,13 +13,13 @@ protected:
 
 public:
     AMateria(void);
-    AMateria(std::string const &type);
+    AMateria(const std::string &type);
     virtual ~AMateria();
     AMateria(const AMateria &src);
     AMateria &operator=(const AMateria &src);
-    std::string const &getType() const;
+    virtual std::string const &getType() const = 0;
     virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    virtual void use(ICharacter& target) = 0;
 };
 
  #endif

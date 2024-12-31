@@ -61,3 +61,17 @@ AMateria* MateriaSource::createMateria(std::string const &type)
     std::cout << type << " materia does not exist.\n";
     return (NULL);
 }
+
+void MateriaSource::materiaList()
+{
+    int i;
+
+    std::cout << "== Inventory ==" << std::endl;
+    i = 0;
+    while(i < 3)
+    {
+        if (this->_inventory[i])
+            std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
+        i++;
+    }
+}

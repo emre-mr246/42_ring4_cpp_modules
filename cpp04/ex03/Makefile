@@ -1,9 +1,9 @@
 FILES       = main AMateria Character Cure Ice MateriaSource
 
-NAME        = Witcher1_ManHunt.exe
+NAME        = Witcher1_ElementHunt.exe
 
 CC          = c++
-CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
+CCFLAGS     =# -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
 RM          = rm -rf
 
 OBJ_DIR     = .obj/

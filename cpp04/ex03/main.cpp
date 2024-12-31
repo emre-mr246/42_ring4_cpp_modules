@@ -1,3 +1,4 @@
+#include "AMateria.hpp"
 #include "Character.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
@@ -7,19 +8,25 @@
 int main()
  {
  IMateriaSource* src = new MateriaSource();
+
  src->learnMateria(new Ice());
  src->learnMateria(new Cure());
- ICharacter* me = new Character("me");
+ ICharacter* emre = new Character("Emre");
  AMateria* tmp;
  tmp = src->createMateria("ice");
- me->equip(tmp);
+ emre->equip(tmp);
  tmp = src->createMateria("cure");
- me->equip(tmp);
- ICharacter* bob = new Character("bob");
- me->use(0, *bob);
- me->use(1, *bob);
+ emre->equip(tmp);
+ 
+     std::cout << std::endl;
+ ICharacter* bob = new Character("Yaratık");
+     std::cout << std::endl;
+ emre->use(0, *bob);
+     std::cout << std::endl;
+ emre->use(1, *bob);
+     std::cout << std::endl;
  delete bob;
- delete me;
+ delete emre;
  delete src;
  return 0;
  }

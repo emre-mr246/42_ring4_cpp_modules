@@ -2,6 +2,8 @@
 
 Ice::Ice(void)
 {
+    this->_type = "ice";
+    AMateria::_type = "ice";
     std::cout << "Default constructor called for Ice." << std::endl;
 }
 
@@ -31,4 +33,9 @@ void Ice::use(ICharacter &src)
 AMateria	*Ice::clone(void) const
 {
 	return (new Ice(*this));
+}
+
+std::string const & Ice::getType() const
+{
+    return (this->_type);
 }

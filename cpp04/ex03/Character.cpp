@@ -48,12 +48,13 @@ void Character::equip(AMateria* m)
         std::cout << this->_name << " attempted to equip an empty materia.\n";
         return ;
     }
+    std::cout << "DEBUG:: " << m->getType() << std::endl;
     for (int i = 0; i < 4; ++i)
     {
         if (this->_inventory[i] == NULL)
         {
             this->_inventory[i] = m;
-            std::cout << this->_name << " successfully equipped." << m->getType() << " in slot " << i << "\n";
+            std::cout << this->_name << " successfully equipped " << m->getType() << " in slot " << i << "\n";
             return ;
         }
     }

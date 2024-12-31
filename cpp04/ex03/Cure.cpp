@@ -2,6 +2,8 @@
 
 Cure::Cure(void)
 {
+    this->_type = "cure";
+    AMateria::_type = "cure";
     std::cout << "Default constructor called for Cure." << std::endl;
 }
 
@@ -31,4 +33,9 @@ void Cure::use(ICharacter &src)
 AMateria	*Cure::clone(void) const
 {
 	return (new Cure(*this));
+}
+
+std::string const & Cure::getType() const
+{
+    return (this->_type);
 }
