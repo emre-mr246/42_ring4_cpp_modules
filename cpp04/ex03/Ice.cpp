@@ -27,7 +27,7 @@ Ice &Ice::operator=(const Ice &src)
 
 void Ice::use(ICharacter &src)
 {
-    std::cout << "Ice: * shoots an ice bolt at " << src.getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << src.getName() << " *" << std::endl;
 }
 
 AMateria	*Ice::clone(void) const

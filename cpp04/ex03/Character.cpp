@@ -48,7 +48,6 @@ void Character::equip(AMateria* m)
         std::cout << this->_name << " attempted to equip an empty materia.\n";
         return ;
     }
-    std::cout << "DEBUG:: " << m->getType() << std::endl;
     for (int i = 0; i < 4; ++i)
     {
         if (this->_inventory[i] == NULL)
