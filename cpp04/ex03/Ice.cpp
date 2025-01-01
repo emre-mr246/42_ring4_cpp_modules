@@ -3,7 +3,6 @@
 Ice::Ice(void)
 {
     this->_type = "ice";
-    AMateria::_type = "ice";
     std::cout << "Default constructor called for Ice." << std::endl;
 }
 
@@ -12,7 +11,7 @@ Ice::~Ice()
     std::cout << "Destructor called for Ice." << std::endl;
 }
 
-Ice::Ice(const Ice &src): AMateria()
+Ice::Ice(const Ice &src): AMateria(src)
 {
     *this = src;
     std::cout << "Copy constructor called for Ice." << std::endl;

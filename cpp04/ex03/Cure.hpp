@@ -13,9 +13,6 @@ public:
     const std::string &getType() const;
     AMateria *clone(void) const;
     void use(ICharacter &src);
-
-private:
-    std::string _type;
 };
 
 #endif

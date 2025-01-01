@@ -3,7 +3,6 @@
 Cure::Cure(void)
 {
     this->_type = "cure";
-    AMateria::_type = "cure";
     std::cout << "Default constructor called for Cure." << std::endl;
 }
 
@@ -12,7 +11,7 @@ Cure::~Cure()
     std::cout << "Destructor called for Cure." << std::endl;
 }
 
-Cure::Cure(const Cure &src): AMateria()
+Cure::Cure(const Cure &src): AMateria(src)
 {
     *this = src;
     std::cout << "Copy constructor called for Cure." << std::endl;
