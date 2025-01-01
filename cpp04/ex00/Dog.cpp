@@ -13,7 +13,7 @@ Dog::~Dog()
 
 Dog::Dog(const Dog &src) : Animal()
 {
-	*this = src;
+	this->_type = src._type;
 	std::cout << "Copy constructor called for " << this->_type << std::endl;
 }
 

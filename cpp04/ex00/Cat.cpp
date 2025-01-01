@@ -13,7 +13,7 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &src) : Animal()
 {
-	*this = src;
+	this->_type = src._type;
 	std::cout << "Copy constructor called for " << this->_type << std::endl;
 }
 
