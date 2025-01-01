@@ -5,9 +5,9 @@ AMateria::AMateria(void): _type("none")
     std::cout << "Default constructor called for AMateria." << std::endl;
 }
 
-AMateria::AMateria(const std::string & type): _type(type)
+AMateria::AMateria(const std::string &type): _type(type)
 {
-    std::cout << "Default constructor called for AMateria." << std::endl;
+    std::cout << "Constructor called for AMateria." << std::endl;
 }
 
 AMateria::~AMateria()
@@ -17,8 +17,8 @@ AMateria::~AMateria()
 
 AMateria::AMateria(const AMateria &src)
 {
-    *this = src;
     std::cout << "Copy constructor called for AMateria." << std::endl;
+    *this = src;
 }
 
 AMateria &AMateria::operator=(const AMateria &src)
@@ -31,4 +31,9 @@ AMateria &AMateria::operator=(const AMateria &src)
 void AMateria::use(ICharacter& target)
 {
 	std::cout << "AMateria used on " << target.getName() << "." << std::endl;
+}
+
+std::string const & AMateria::getType() const
+{
+    return (this->_type);
 }

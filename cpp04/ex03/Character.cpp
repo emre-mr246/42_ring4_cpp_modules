@@ -9,28 +9,49 @@ Character::Character(void)
 Character::Character(std::string name)
 {
     this->_name = name;
-    std::cout << "Default constructor called for Character." << std::endl;
+    std::cout << "Constructor called for Character." << std::endl;
 }
 
 Character::~Character()
 {
     std::cout << "Destructor called for Character." << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->_inventory[i])
+            delete (this->_inventory[i]);
+    }
 }
 
 Character::Character(const Character &src)
 {
-    *this = src;
+    for (int i = 0; i < 4; i++)
+    {
+        if (src._inventory[i])
+        {
+            this->_inventory[i] = src._inventory[i]->clone();
+            if (!this->_inventory[i])
+                std::cerr << "Clone failed for inventory item " << i << std::endl;
+        }
+        else
+            this->_inventory[i] = NULL;
+    }
     std::cout << "Copy constructor called for Character." << std::endl;
 }
 
 Character &Character::operator=(const Character &src)
 {
+    if (this == &src)
+        return (*this);
     for(int i = 0; i < 4; i++)
 	{
         if (this->_inventory[i])
                 delete (this->_inventory[i]);
         if (src._inventory[i])
-                this->_inventory[i] = (src._inventory[i])->clone();
+        {
+            this->_inventory[i] = (src._inventory[i])->clone();
+            if (!this->_inventory[i])
+                std::cerr << "Clone failed for inventory item " << i << std::endl;
+        }
 	}
     std::cout << "Copy assignment operator called for Character." << std::endl;
     return (*this);

@@ -17,9 +17,9 @@ public:
     virtual ~AMateria();
     AMateria(const AMateria &src);
     AMateria &operator=(const AMateria &src);
-    virtual std::string const &getType() const = 0;
+    virtual std::string const &getType() const;
     virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target) = 0;
+    virtual void use(ICharacter& target);
 };
 
  #endif
