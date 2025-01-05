@@ -37,6 +37,17 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 	return (*this);
 }
 
+void FragTrap::attack(const std::string& target)
+{
+	if (this->_energy > 0)
+	{
+		std::cout << "[FragTrap]" << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energy--;
+	}
+	else
+		std::cout << "Not enough energy!" << std::endl;
+}
+
 void FragTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energy > 0)
@@ -54,17 +65,6 @@ void FragTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "Not enough energy!" << std::endl;
 }
-
-// void FragTrap::attack(const std::string& target)
-// {
-// 	if (this->_energy > 0)
-// 	{
-// 		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage." << std::endl;
-// 		this->_energy--;
-// 	}
-// 	else
-// 		std::cout << "Not enough energy!" << std::endl;
-// }
 
 void FragTrap::highFivesGuys(void)
 {
