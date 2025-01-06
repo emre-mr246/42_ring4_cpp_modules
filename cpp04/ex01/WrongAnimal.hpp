@@ -13,7 +13,7 @@ public:
 	WrongAnimal(const WrongAnimal &src);
 	WrongAnimal &operator=(const WrongAnimal &src);
 	void makeSound(void) const;
-	
+
 protected:
 	std::string _type;
 };

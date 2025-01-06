@@ -23,3 +23,8 @@ Animal &Animal::operator=(const Animal &src)
 	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
 	return (*this);
 }
+
+void Animal::makeSound(void) const
+{
+	std::cout << this->_type << ": Animal class's makeSound() function called." << std::endl;
+}

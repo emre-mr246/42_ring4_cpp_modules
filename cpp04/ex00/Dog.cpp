@@ -14,11 +14,15 @@ Dog::~Dog()
 Dog::Dog(const Dog &src) : Animal()
 {
 	this->_type = src._type;
-	std::cout << "Copy constructor called for " << this->_type << std::endl;
+	std::cout << "Copy constructor called for " << src._type << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &src)
 {
+	if (this == &src)
+	{
+		return (*this);
+	}
 	this->_type = src._type;
 	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
 	return (*this);

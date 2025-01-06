@@ -12,8 +12,8 @@ Brain::~Brain()
 
 Brain::Brain(const Brain &src)
 {
-    *this = src;
     std::cout << "Copy constructor called for brain." << std::endl;
+    *this = src;
 }
 
 Brain &Brain::operator=(const Brain &src)
@@ -22,6 +22,28 @@ Brain &Brain::operator=(const Brain &src)
     if (this == &src)
         return (*this);
     for (int i = 0; i < 100; i++)
-        this->_ideas[i] = src._ideas[i];
+        if (src._ideas[i].size())
+            this->_ideas[i] = src._ideas[i];
     return (*this);
+}
+
+void Brain::setIdea(unsigned int i, std::string idea)
+{
+    if (i <= 100)
+        this->_ideas[i] = idea;
+    else
+        std::cout << "I am just a ANIMAL!!" << std::endl;
+}
+
+const std::string Brain::getIdea(unsigned int i) const
+{
+    if (i <= 100)
+    {
+        if (this->_ideas[i].size())
+            return (this->_ideas[i]);
+        else
+            return ("There is no idea!");
+    }
+    else
+        return ("I am just a ANIMAL!!");
 }

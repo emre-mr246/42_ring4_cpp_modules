@@ -8,13 +8,13 @@
 class WrongAnimal
 {
 public:
+	WrongAnimal(void);
 	virtual ~WrongAnimal();
 	WrongAnimal(const WrongAnimal &src);
 	WrongAnimal &operator=(const WrongAnimal &src);
 	void makeSound(void) const;
-	
+
 protected:
-	WrongAnimal(void);
 	std::string _type;
 };
 

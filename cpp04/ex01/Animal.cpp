@@ -28,4 +28,3 @@ void Animal::makeSound(void) const
 {
 	std::cout << this->_type << ": Animal class's makeSound() function called." << std::endl;
 }
-

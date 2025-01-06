@@ -9,8 +9,9 @@ int main()
     delete (meta);
     std::cout << std::endl;
 
-    const Animal *d = new Dog();
+    Animal *d = new Dog();
     d->makeSound();
+
     delete (d);
     std::cout << std::endl;
 
@@ -23,5 +24,5 @@ int main()
     w->makeSound();
     delete (w);
 
-    return 0;
+    return (0);
 }

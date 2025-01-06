@@ -3,7 +3,7 @@ FILES       = main Animal Cat Dog WrongAnimal WrongCat Brain
 NAME        = animal
 
 CC          = c++
-CCFLAGS     = #-Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
+CCFLAGS     = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
 RM          = rm -rf
 
 OBJ_DIR     = .obj/

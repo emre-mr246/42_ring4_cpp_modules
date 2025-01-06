@@ -12,6 +12,8 @@ public:
 	virtual ~Brain();
 	Brain(const Brain &src);
 	Brain &operator=(const Brain &src);
+	void setIdea(unsigned int i, std::string idea);
+	const std::string getIdea(unsigned int i) const;
 
 protected:
 	std::string _ideas[100];
