@@ -21,8 +21,12 @@ Dog::~Dog()
 
 Dog::Dog(const Dog &src) : Animal()
 {
-	*this = src;
-	std::cout << "Copy constructor called for " << this->_type << std::endl;
+    this->_type = src._type;
+    if (src._brain)
+        this->_brain = new Brain(*src._brain);
+	else
+        this->_brain = NULL;
+    std::cout << "Copy constructor called for " << src._type << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &src)

@@ -39,7 +39,7 @@ int main()
 
     delete(dog);
 
-    std::cout << std::endl << "== ASSIGNMENT OPERATOR DEEP COPY TEST ==" << std::endl; 
+    std::cout << std::endl << "== DEEP COPY TEST 1 ==" << std::endl; 
     std::cout <<  "=======================================" << std::endl;
 
     Dog dog_local1;
@@ -52,16 +52,32 @@ int main()
     std::cout << dog_local1.getIdea(1) << std::endl; 
     std::cout << dog_local2.getIdea(1) << std::endl; 
 
-    std::cout << std::endl << "== COPY CONSTRUCTOR DEEP COPY TEST ==" << std::endl; 
+    std::cout << std::endl << "== DEEP COPY TEST 2 ==" << std::endl; 
     std::cout <<  "=======================================" << std::endl;
 
     Dog *dog_copy = new Dog();
-    Dog *dog_copy2(dog_copy);
+    Dog *dog_copy2 = new Dog(*dog_copy);
 
     dog_copy->newIdea(1, "Günde bir bardak su içmeliyiz.");
     dog_copy2->newIdea(1, "Günde iki bardak su içmeliyiz.");
     std::cout << dog_copy->getIdea(1) << std::endl; 
     std::cout << dog_copy2->getIdea(1) << std::endl; 
+
+    delete (dog_copy);
+    delete (dog_copy2);
+
+    std::cout << std::endl << "== DEEP COPY TEST 3 ==" << std::endl; 
+    std::cout <<  "=======================================" << std::endl;
+
+    Dog dog_test;
+    Dog dog_test2(dog_test);
+
+    dog_test.newIdea(1, "Ben elma yemek istiyorum.");
+    dog_test2 = dog_test;
+    std::cout << dog_test.getIdea(1) << std::endl; 
+    dog_test2.newIdea(1, "Ben armut yemek istiyorum.");
+    std::cout << dog_test.getIdea(1) << std::endl; 
+    std::cout << dog_test2.getIdea(1) << std::endl; 
 
     return (0);
 }
