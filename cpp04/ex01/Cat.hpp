@@ -15,7 +15,9 @@ public:
 	Cat(const Cat &src);
 	Cat &operator=(const Cat &src);
 	void makeSound(void) const;
-	
+	void newIdea(unsigned int i, std::string idea);
+
+
 private:
 	Brain *_brain;
 };
