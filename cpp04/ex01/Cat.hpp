@@ -17,7 +17,6 @@ public:
 	void makeSound(void) const;
 	void newIdea(unsigned int i, std::string idea);
 
-
 private:
 	Brain *_brain;
 };

@@ -3,13 +3,13 @@
 Dog::Dog(void)
 {
 	this->_type = "Dog";
-	std::cout << "Default constructor called for " << this->_type << std::endl;
 	this->_brain = new Brain();
 	if (!this->_brain)
 	{
 		std::cerr << "Brain allocation failed for Dog!" << std::endl;
 		return ;
 	}
+	std::cout << "Default constructor called for " << this->_type << std::endl;
 }
 
 Dog::~Dog()
@@ -21,16 +21,19 @@ Dog::~Dog()
 
 Dog::Dog(const Dog &src) : Animal()
 {
-	std::cout << "Copy constructor called for " << this->_type << std::endl;
 	*this = src;
+	std::cout << "Copy constructor called for " << this->_type << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &src)
 {
-	std::cout << "TEST COPY ASSIGNMENT" << std::endl;
-	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
+    if (this == &src)
+    	return (*this);
 	this->_type = src._type;
+	if (this->_brain)
+		delete(this->_brain);
 	this->_brain = new Brain(*src._brain);
+	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
 	return (*this);
 }
 

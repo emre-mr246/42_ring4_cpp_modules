@@ -37,30 +37,31 @@ int main()
     std::cout << dog->getIdea(99) << std::endl;
     std::cout << dog->getIdea(-1) << std::endl;
 
-    std::cout << std::endl << "== DEEP COPY TEST ==" << std::endl; 
+    delete(dog);
+
+    std::cout << std::endl << "== ASSIGNMENT OPERATOR DEEP COPY TEST ==" << std::endl; 
     std::cout <<  "=======================================" << std::endl;
 
-    // Dog *dog2(dog);
-    Dog *dog3 = new Dog();
+    Dog dog_local1;
+    Dog dog_local2;
 
-    dog3 = dog;
+    dog_local1.newIdea(1, "Ben muz yemek istiyorum.");
+    dog_local2 = dog_local1;
+    std::cout << dog_local1.getIdea(1) << std::endl; 
+    dog_local2.newIdea(1, "Ben kek yemek istiyorum.");
+    std::cout << dog_local1.getIdea(1) << std::endl; 
+    std::cout << dog_local2.getIdea(1) << std::endl; 
 
-    // dog2->newIdea(1, "kediler dosttur");
-    dog3->newIdea(1, "kediler köpektir");
+    std::cout << std::endl << "== COPY CONSTRUCTOR DEEP COPY TEST ==" << std::endl; 
+    std::cout <<  "=======================================" << std::endl;
 
-    std::cout << dog->getIdea(1) << std::endl;
-    // std::cout << dog2->getIdea(1) << std::endl;
-    std::cout << dog3->getIdea(1) << std::endl;
+    Dog *dog_copy = new Dog();
+    Dog *dog_copy2(dog_copy);
 
-    // // LEAK TEST
-    // std::cout << std::endl << "=======================================" << std::endl << std::endl;
-    
-    // dog->newIdea(1, "kediler yeni bir fikirdir");
-    // std::cout << dog->getIdea(1) << std::endl << std::endl;
-
-    // delete(dog);
-    // // delete(dog2);
-    // delete(dog3);
+    dog_copy->newIdea(1, "Günde bir bardak su içmeliyiz.");
+    dog_copy2->newIdea(1, "Günde iki bardak su içmeliyiz.");
+    std::cout << dog_copy->getIdea(1) << std::endl; 
+    std::cout << dog_copy2->getIdea(1) << std::endl; 
 
     return (0);
 }

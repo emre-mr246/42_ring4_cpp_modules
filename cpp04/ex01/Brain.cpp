@@ -14,7 +14,6 @@ Brain::Brain(const Brain &src)
 {
     std::cout << "Copy constructor called for brain." << std::endl;
     *this = src;
-    std::cout << "***************" << this->_ideas[1] << std::endl;
 }
 
 Brain &Brain::operator=(const Brain &src)
@@ -23,8 +22,8 @@ Brain &Brain::operator=(const Brain &src)
     if (this == &src)
         return (*this);
     for (int i = 0; i < 100; i++)
-        this->_ideas[i] = src._ideas[i];
-    std::cout << "***************" << this->_ideas[1] << std::endl;
+        if (src._ideas[i].size())
+            this->_ideas[i] = src._ideas[i];
     return (*this);
 }
 
