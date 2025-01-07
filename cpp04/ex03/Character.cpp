@@ -3,12 +3,16 @@
 Character::Character(void)
 {
     this->_name = "Default";
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
     std::cout << "Default constructor called for Character." << std::endl;
 }
 
 Character::Character(std::string name)
 {
     this->_name = name;
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
     std::cout << "Constructor called for Character." << std::endl;
 }
 

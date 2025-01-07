@@ -4,11 +4,6 @@
 
 int main()
 {
-    // const Animal *meta = new Animal();
-    // meta->makeSound();
-    // delete (meta);
-    // std::cout << std::endl;
-
     Animal *d = new Dog();
     d->makeSound();
 

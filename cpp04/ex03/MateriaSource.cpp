@@ -2,6 +2,8 @@
 
 MateriaSource::MateriaSource(void)
 {
+    for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
     std::cout << "Default constructor called for MateriaSource." << std::endl;
 }
 
@@ -34,16 +36,18 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
     return (*this);
 }
 
-void MateriaSource::learnMateria(AMateria *materia)
+void MateriaSource:: learnMateria(AMateria *materia)
 {
     for (int i = 0; i < 4; ++i)
     {
         if ((this->_inventory)[i] == NULL)
         {
             (this->_inventory)[i] = materia;
-            std::cout << "Materia " << materia->getType() << " learned.\n";
+            std::cout << "Materia " << materia->getType() << " learned." << std::endl;
             return ;
         }
+        else
+            std::cout << "Slot " << i << " is not empty!" << std::endl;
     }
     std::cout << "Can't learn more than 4 Materia.\n";
 }
