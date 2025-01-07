@@ -112,3 +112,18 @@ void Character::use(int idx, ICharacter& target)
     std::cout << this->getName() << " used " << (this->_inventory)[idx]->getType() << " materia on " << target.getName() << ".\n";
     (this->_inventory)[idx]->use(target);
 }
+
+void Character::printInventory() const
+{
+    int i;
+
+    std::cout << "== " << this->getName() << "'s Inventory ==" << std::endl;
+    i = 0;
+    while(i < 4)
+    {
+        if (this->_inventory[i])
+            std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
+        i++;
+    }
+    std::cout << "===== END ==" << std::endl;
+}

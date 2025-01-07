@@ -66,7 +66,7 @@ AMateria* MateriaSource::createMateria(std::string const &type)
     return (NULL);
 }
 
-void MateriaSource::materiaList()
+void MateriaSource::getInventory()
 {
     int i;
 

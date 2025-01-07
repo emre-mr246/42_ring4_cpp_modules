@@ -16,21 +16,29 @@ int main()
     ICharacter *emre = new Character("Emre");
     AMateria *tmp;
     tmp = src->createMateria("ice");
-    // emre->equip(tmp);
-    // tmp = src->createMateria("cure");
-    // emre->equip(tmp);
-    // ICharacter *bob = new Character("Yaratık");
-    // std::cout << std::endl;
-    // emre->use(0, *bob);
-    // emre->use(1, *bob);
-    // std::cout << std::endl;
-    free(tmp);
-    // std::cout << std::endl
-    //           << "== DEEP COPY TEST ==" << std::endl;
-    // std::cout << "=======================================" << std::endl;
+    emre->equip(tmp);
+    tmp = src->createMateria("cure");
+    emre->equip(tmp);
+    ICharacter *bob = new Character("Yaratık");
+    std::cout << std::endl;
+    emre->use(0, *bob);
+    emre->use(1, *bob);
 
-    // delete (bob);
+
+    std::cout << std::endl
+              << "== DEEP COPY TEST ==" << std::endl;
+    std::cout << "=======================================" << std::endl;
+
+    emre->printInventory();
+    bob->printInventory();
+
+    bob = emre;
+
+    emre->printInventory();
+    bob->printInventory();
+
     delete (emre);
     delete (src);
+    delete (bob);
     return (0);
 }
