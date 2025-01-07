@@ -19,9 +19,10 @@ Ice::Ice(const Ice &src): AMateria(src)
 
 Ice &Ice::operator=(const Ice &src)
 {
-    this->_type = src._type;
-    std::cout << "Copy assignment operator called for Ice." << std::endl;
-    return (*this);
+	std::cout << "Copy assignment operator called for Ice." << std::endl;
+	// if (this == &src)
+	// 	return (*this);
+	return (*this);
 }
 
 void Ice::use(ICharacter &src)
@@ -31,7 +32,12 @@ void Ice::use(ICharacter &src)
 
 AMateria	*Ice::clone(void) const
 {
-	return (new Ice(*this));
+    AMateria *clone = new Ice(*this);
+    if (!clone)
+    {
+        return (NULL);
+    }
+    return (clone);
 }
 
 std::string const & Ice::getType() const

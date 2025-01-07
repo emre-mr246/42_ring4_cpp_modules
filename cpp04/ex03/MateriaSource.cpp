@@ -72,7 +72,7 @@ void MateriaSource::materiaList()
 
     std::cout << "== Inventory ==" << std::endl;
     i = 0;
-    while(i < 3)
+    while(i < 4)
     {
         if (this->_inventory[i])
             std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
