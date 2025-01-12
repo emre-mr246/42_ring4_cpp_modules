@@ -13,13 +13,13 @@ int main()
 
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    ICharacter *emre = new Character("Emre");
+    Character *emre = new Character("Emre");
     AMateria *tmp;
     tmp = src->createMateria("ice");
     emre->equip(tmp);
     tmp = src->createMateria("cure");
     emre->equip(tmp);
-    ICharacter *bob = new Character("Yaratık");
+    Character *bob = new Character("Cicin Büyücüsü Bob");
     std::cout << std::endl;
     emre->use(0, *bob);
     emre->use(1, *bob);
@@ -31,8 +31,9 @@ int main()
 
     emre->printInventory();
     bob->printInventory();
-
-    bob = emre;
+    
+    delete (bob);
+    bob = new Character(*emre);
 
     emre->printInventory();
     bob->printInventory();
