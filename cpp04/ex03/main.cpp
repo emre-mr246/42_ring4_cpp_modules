@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 10:09:39 by emgul             #+#    #+#             */
+/*   Updated: 2025/01/13 10:09:40 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 #include "Cure.hpp"
@@ -28,12 +40,14 @@ int main()
     std::cout << std::endl
               << "== DEEP COPY TEST ==" << std::endl;
     std::cout << "=======================================" << std::endl;
+ 
+    delete (bob);
+    bob = new Character(*emre);
 
     emre->printInventory();
     bob->printInventory();
-    
-    delete (bob);
-    bob = new Character(*emre);
+
+    emre->unequip();
 
     emre->printInventory();
     bob->printInventory();

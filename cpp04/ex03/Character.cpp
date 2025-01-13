@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 10:09:54 by emgul             #+#    #+#             */
+/*   Updated: 2025/01/13 10:09:55 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 
 Character::Character(void)
@@ -61,7 +73,7 @@ void Character::equip(AMateria *materia)
 {
     if (!materia)
     {
-        std::cout << this->_name << " attempted to equip an empty materia.\n";
+        std::cout << this->_name << " attempted to equip an empty materia." << std::endl;
         return;
     }
     for (int i = 0; i < 4; ++i)
@@ -69,11 +81,11 @@ void Character::equip(AMateria *materia)
         if (this->_inventory[i] == NULL)
         {
             this->_inventory[i] = materia;
-            std::cout << this->_name << " successfully equipped " << materia->getType() << " in slot " << i << "\n";
+            std::cout << this->_name << " successfully equipped " << materia->getType() << " in slot " << i << std::endl;
             return;
         }
     }
-    std::cout << this->_name << " can't equip more than 4 Materia.\n";
+    std::cout << this->_name << " can't equip more than 4 Materia." << std::endl;
 }
 
 void Character::unequip(int i)

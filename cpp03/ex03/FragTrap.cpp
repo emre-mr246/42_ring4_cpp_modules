@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 10:11:34 by emgul             #+#    #+#             */
+/*   Updated: 2025/01/13 10:11:36 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(): ClapTrap()
@@ -63,4 +75,3 @@ void FragTrap::highFivesGuys(void)
         std::cout << "Not enough energy or FragTrap is dead." << std::endl;
     return ;
 }
-
