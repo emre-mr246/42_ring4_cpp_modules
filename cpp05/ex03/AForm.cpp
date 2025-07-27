@@ -85,6 +85,7 @@ void AForm::executeForm(Bureaucrat const &executor) const
     {
         throw GradeTooLowException();
     }
+    std::cout << executor.getName() << " executes \"" << this->_name << "\"." << std::endl;
     action();
 }
 
