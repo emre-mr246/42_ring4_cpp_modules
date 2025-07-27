@@ -3,11 +3,11 @@
 
 int main()
 {
-    Bureaucrat emre("Emre", 2);
-    Bureaucrat Meeseeks;
-
     try
     {
+        Bureaucrat emre("Emre", 2);
+        Bureaucrat Meeseeks;
+        
         std::cout << Meeseeks << std::endl;
         std::cout << emre << std::endl;
         emre.incrementGrade();
@@ -17,6 +17,10 @@ int main()
         emre.incrementGrade();
     }
     catch (const Bureaucrat::GradeTooHighException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException &e)
     {
         std::cerr << e.what() << std::endl;
     }

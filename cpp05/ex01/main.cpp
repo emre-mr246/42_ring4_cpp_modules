@@ -14,7 +14,15 @@ int main()
         form.beSigned(emre);
         form.executeForm(emre);
     }
-    catch (const Bureaucrat::GradeTooHighException &e)
+    catch (const Form::GradeTooHighException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch (const Form::GradeTooLowException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch (const Form::IsNotSignedException &e)
     {
         std::cerr << e.what() << std::endl;
     }

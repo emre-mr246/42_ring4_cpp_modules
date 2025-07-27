@@ -1,30 +1,32 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #pragma once
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 private:
     std::string _name;
     bool _isSigned;
     unsigned int _gradeToSign;
     unsigned int _gradeToExecute;
+    virtual void action() const = 0;
 
 public:
-	Form(void);
-    Form(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
-	~Form();
-	Form(const Form &src);
-	Form &operator=(const Form &src);
+	AForm(void);
+    AForm(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
+	AForm(const AForm &src);
+	virtual ~AForm();
+	AForm &operator=(const AForm &src);
 
     std::string getName() const;
     unsigned int getGradeRequired() const;
     unsigned int getGradeToExecute() const;
     bool getIsSigned() const;
+    void setIsSigned(bool isSigned);
     void beSigned(Bureaucrat const &bureaucrat);
     void executeForm(Bureaucrat const &executor) const;
 
@@ -40,11 +42,12 @@ public:
     };
     class IsNotSignedException : public std::exception
     {
-    public:
+    public: 
         virtual const char *what() const throw();
     };
+
 };
 
-std::ostream &operator<<(std::ostream &os, Form const &src);
+std::ostream &operator<<(std::ostream &os, AForm const &src);
 
 #endif

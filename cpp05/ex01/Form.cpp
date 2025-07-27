@@ -85,8 +85,7 @@ void Form::executeForm(Bureaucrat const &executor) const
 {
     if (!this->_isSigned)
     {
-        std::cout << executor.getName() << " cannot execute the form because " << this->_name << " is not signed." << std::endl;
-        return;
+        throw IsNotSignedException();
     }
     if (executor.getGrade() > this->_gradeToExecute)
     {
@@ -103,4 +102,9 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
     return ("Grade too low!");
+}
+
+const char* Form::IsNotSignedException::what() const throw()
+{
+    return ("Form is not signed!");
 }

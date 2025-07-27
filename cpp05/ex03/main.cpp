@@ -11,7 +11,7 @@ int main()
     {
         AForm *form = intern.makeForm("shrubbery creation", "Emre");
         form->beSigned(emre);
-        // form->executeForm(emre);
+        form->executeForm(emre);
         delete form;
     }
     catch (const std::exception &e)
