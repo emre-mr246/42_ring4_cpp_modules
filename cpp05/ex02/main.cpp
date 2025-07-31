@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:37:37 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:34:09 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -8,22 +20,32 @@ int main()
 {
     Bureaucrat emre("Emre", 1);
 
+    std::cout << "==============================================" << std::endl;
     try
     {
-        RobotomyRequestForm form("RobotomyRequestForm");
-        std::cout << form << std::endl;
-        form.beSigned(emre);
-        form.executeForm(emre);
+        RobotomyRequestForm robotomyForm("RobotomyRequestForm");
+        std::cout << robotomyForm << std::endl;
+        emre.signForm(robotomyForm);
+        emre.executeForm(robotomyForm);
+        std::cout << std::endl;
 
         PresidentialPardonForm pardonForm("PresidentialPardonForm");
         std::cout << pardonForm << std::endl;
-        pardonForm.beSigned(emre);
-        pardonForm.executeForm(emre);
+        emre.signForm(pardonForm);
+        emre.executeForm(pardonForm);
+        std::cout << std::endl;
 
         ShrubberyCreationForm shrubberyForm("ShrubberyCreationForm");
         std::cout << shrubberyForm << std::endl;
-        shrubberyForm.beSigned(emre);
-        shrubberyForm.executeForm(emre);
+        emre.signForm(shrubberyForm);
+        emre.executeForm(shrubberyForm);
+        std::cout << std::endl;
+
+        RobotomyRequestForm *robotomyForm2 = new RobotomyRequestForm("emre");
+        std::cout << *robotomyForm2 << std::endl;
+        emre.signForm(*robotomyForm2);
+        emre.executeForm(*robotomyForm2);
+        delete(robotomyForm2);
     }
     catch (const AForm::GradeTooHighException &e)
     {

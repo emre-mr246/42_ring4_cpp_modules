@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:37:49 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:27:31 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
@@ -6,13 +18,15 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class AForm
 {
 private:
-    std::string _name;
+    const std::string _name;
     bool _isSigned;
-    unsigned int _gradeToSign;
-    unsigned int _gradeToExecute;
+    const unsigned int _gradeToSign;
+    const unsigned int _gradeToExecute;
     virtual void action() const = 0;
 
 public:
@@ -27,8 +41,8 @@ public:
     unsigned int getGradeToExecute() const;
     bool getIsSigned() const;
     void setIsSigned(bool isSigned);
-    void beSigned(Bureaucrat const &bureaucrat);
-    void executeForm(Bureaucrat const &executor) const;
+    void beSigned();
+    void execute(Bureaucrat const &executor) const;
 
     class GradeTooHighException : public std::exception
     {

@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:38:09 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:22:24 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 #include <iostream>
 
 Form::Form(void): _name("Default Form"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
@@ -13,30 +24,20 @@ Form::Form(std::string name, unsigned int gradeRequired, unsigned int gradeToExe
 		throw GradeTooHighException();
 	else if (gradeRequired > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
-	this->_gradeToSign = gradeRequired;
-	this->_gradeToExecute = gradeToExecute;
-	std::cout << "Constructor called for " << this->_name << std::endl;
 }
 
 Form::~Form()
 {
-	std::cout << "Destructor called for " << this->_name << std::endl;
 }
 
 Form::Form(const Form &src): _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
-    std::cout << "Copy constructor called for " << this->_name << std::endl;
 }
 
 Form &Form::operator=(const Form &src)
 {
     if (this == &src)
         return (*this);
-    this->_name = src._name;
-    this->_isSigned = src._isSigned;
-    this->_gradeToSign = src._gradeToSign;
-    this->_gradeToExecute = src._gradeToExecute;
-    std::cout << "Copy assignment operator called for " << this->_name << std::endl;
     return (*this);
 }
 
@@ -66,22 +67,13 @@ bool Form::getIsSigned() const
     return (this->_isSigned);
 }
 
-void Form::beSigned(Bureaucrat const &bureaucrat)
+void Form::beSigned()
 {
-    if (this->_isSigned)
-    {
-        std::cout << bureaucrat.getName() << " cannot sign " << this->_name << " because it is already signed." << std::endl;
-        return;
-    }
-    if (bureaucrat.getGrade() > this->_gradeToSign)
-    {
-        throw GradeTooLowException();
-    }
     this->_isSigned = true;
-    std::cout << bureaucrat.getName() << " signs \"" << this->_name << "\"." << std::endl;
+    std::cout << "\"" << this->_name << "\" signed." << std::endl;
 }
 
-void Form::executeForm(Bureaucrat const &executor) const
+void Form::execute(Bureaucrat const &executor) const
 {
     if (!this->_isSigned)
     {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:37:24 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 15:42:37 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 #include <stdlib.h>
 #include <iostream>
@@ -34,8 +46,8 @@ void RobotomyRequestForm::action() const
 {
     int number;
 
-    srand(time(NULL));
-    number = rand() % 2;
+    srand(time(0));
+    number =  rand() % 2;
     if (number == 0)
     {
         std::cout << "**some drilling noises** " << std::endl;

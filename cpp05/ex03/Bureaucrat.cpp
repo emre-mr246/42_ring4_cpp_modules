@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:38:16 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:25:22 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 
@@ -5,7 +17,7 @@ Bureaucrat::Bureaucrat(void): _name("Mr. Meeseeks"), _grade(150)
 {
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -60,6 +72,27 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 	this->_grade++;
 	std::cout << "Grade decremented to " << this->_grade << std::endl;
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	if (form.getIsSigned())
+    {
+        std::cout << this->_name << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
+        return;
+    }
+    if (this->_grade > form.getGradeRequired())
+    {
+        throw GradeTooLowException();
+    }
+	std::cout << this->_name << " trying to sign \"" << form.getName() << "\"." << std::endl;
+	form.beSigned();
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	std::cout << this->_name << " trying to execute " << form.getName() << "." << std::endl;
+	form.execute(*this);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

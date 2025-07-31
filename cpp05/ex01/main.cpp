@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:38:01 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:24:20 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <iostream>
@@ -11,14 +23,14 @@ int main()
         Form form("Sales Agreement for 42 ID Card Lanyards", 42, 42);
         std::cout << form << std::endl;
         std::cout << emre << std::endl;
-        form.beSigned(emre);
-        form.executeForm(emre);
+        emre.signForm(form);
+        emre.executeForm(form);
     }
-    catch (const Form::GradeTooHighException &e)
+    catch (const Bureaucrat::GradeTooHighException &e)
     {
         std::cerr << e.what() << std::endl;
     }
-    catch (const Form::GradeTooLowException &e)
+    catch (const Bureaucrat::GradeTooLowException &e)
     {
         std::cerr << e.what() << std::endl;
     }

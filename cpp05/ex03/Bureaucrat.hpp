@@ -1,14 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:38:12 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:25:46 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #pragma once
 
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
 private:
-    std::string _name;
+    const std::string _name;
     unsigned int _grade;
 
 public:
@@ -22,6 +37,8 @@ public:
 	unsigned int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+	void signForm(AForm &form);
+	void executeForm(AForm const &form) const;
 
 	class GradeTooLowException : public std::exception
 	{

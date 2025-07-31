@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:37:54 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 14:27:25 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include <iostream>
 
@@ -60,22 +73,13 @@ void AForm::setIsSigned(bool isSigned)
     this->_isSigned = isSigned;
 }
 
-void AForm::beSigned(Bureaucrat const &bureaucrat)
+void AForm::beSigned()
 {
-    if (this->_isSigned)
-    {
-        std::cout << bureaucrat.getName() << " cannot sign " << this->_name << " because it is already signed." << std::endl;
-        return;
-    }
-    if (bureaucrat.getGrade() > this->_gradeToSign)
-    {
-        throw GradeTooLowException();
-    }
     this->_isSigned = true;
-    std::cout << bureaucrat.getName() << " signs \"" << this->_name << "\"." << std::endl;
+    std::cout << "\"" << this->_name << "\" signed." << std::endl;
 }
 
-void AForm::executeForm(Bureaucrat const &executor) const
+void AForm::execute(Bureaucrat const &executor) const
 {
     if (!this->_isSigned)
     {       

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 12:38:29 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 12:44:46 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 
@@ -6,7 +18,7 @@ Bureaucrat::Bureaucrat(void): _name("Mr. Meeseeks"), _grade(150)
 	std::cout << "Default constructor called for " << this->_name << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
