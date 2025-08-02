@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                     :+:      :+:    :+:   */
+/*   Data.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
 #pragma once
 
 #include <iostream>
 
-enum e_type
+class Data
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	SPECIAL,
-	UNDEFINED
-};
-
-class ScalarConverter
-{
-private:
-	ScalarConverter(void);
-	~ScalarConverter();
-	ScalarConverter(const ScalarConverter &src);
-	ScalarConverter &operator=(const ScalarConverter &src);
-	
-public:
-	static void convert(const std::string &input);
+	public:
+        Data(void);
+        ~Data();
+        Data(const Data &src);
+        Data &operator=(const Data &src);
+        
+        std::string intraLogin;
+        std::string moduleName;
+        int grade;
 };
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #pragma once
 
 #include <iostream>
+#include "Data.hpp"
+#include <stdint.h>
 
-enum e_type
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	SPECIAL,
-	UNDEFINED
-};
 
-class ScalarConverter
+class Serializer
 {
-private:
-	ScalarConverter(void);
-	~ScalarConverter();
-	ScalarConverter(const ScalarConverter &src);
-	ScalarConverter &operator=(const ScalarConverter &src);
-	
-public:
-	static void convert(const std::string &input);
+	private:
+		Serializer(void);
+		~Serializer();
+		Serializer(const Serializer &src);
+		Serializer &operator=(const Serializer &src);
+
+	public:
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif

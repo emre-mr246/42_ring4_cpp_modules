@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                     :+:      :+:    :+:   */
+/*   Data.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:38:26 by emgul             #+#    #+#             */
-/*   Updated: 2025/07/28 12:44:13 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:38:29 by emgul             #+#    #+#             */
+/*   Updated: 2025/07/28 12:44:46 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#include "Data.hpp"
 
-#pragma once
-
-#include <iostream>
-
-enum e_type
+Data::Data(void)
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	SPECIAL,
-	UNDEFINED
-};
+}
 
-class ScalarConverter
+Data::~Data()
 {
-private:
-	ScalarConverter(void);
-	~ScalarConverter();
-	ScalarConverter(const ScalarConverter &src);
-	ScalarConverter &operator=(const ScalarConverter &src);
-	
-public:
-	static void convert(const std::string &input);
-};
+}
 
-#endif
+Data::Data(const Data &src)
+{
+    (void)src;
+}
+
+Data &Data::operator=(const Data &src)
+{
+    if (this == &src)
+        return (*this);
+    return (*this);
+}
