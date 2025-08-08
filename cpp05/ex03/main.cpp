@@ -24,7 +24,7 @@ int main()
         AForm *form = intern.makeForm("robotomy request", "Emre");
         emre.signForm(*form);
         emre.executeForm(*form);
-        delete form;
+        delete (form);
     }
     catch (const std::exception &e)
     {
