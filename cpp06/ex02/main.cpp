@@ -43,12 +43,17 @@ Base* generate(void)
 
 void identify(Base* p)
 {
+    if (!p)
+    {
+        std::cout << "Error: cannot identify null pointer!" << std::endl;
+        return ;
+    }
     if (dynamic_cast<A*>(p))
-        std::cout << "A" << std::endl;
+        std::cout << "Type(*): A" << std::endl;
     else if (dynamic_cast<B*>(p))
-        std::cout << "B" << std::endl;
+        std::cout << "Type(*): B" << std::endl;
     else if (dynamic_cast<C*>(p))
-        std::cout << "C" << std::endl;
+        std::cout << "Type(*): C" << std::endl;
 }
 
 void identify(Base& p)
@@ -57,7 +62,7 @@ void identify(Base& p)
     {
         A &a = dynamic_cast<A&>(p);
         (void)a;
-        std::cout << "A" << std::endl;
+        std::cout << "Type(&): A" << std::endl;
         return ;
     }
     catch (std::exception &e) {}
@@ -66,7 +71,7 @@ void identify(Base& p)
     {
         B &b = dynamic_cast<B&>(p);
         (void)b;
-        std::cout << "B" << std::endl;
+        std::cout << "Type(&): B" << std::endl;
         return ;
     }
     catch (std::exception &e) {}
@@ -75,7 +80,7 @@ void identify(Base& p)
     {
         C &c = dynamic_cast<C&>(p);
         (void)c;
-        std::cout << "C" << std::endl;
+        std::cout << "Type(&): C" << std::endl;
         return ;
     }
     catch (std::exception &e) {}
@@ -83,8 +88,12 @@ void identify(Base& p)
 
 int main()
 {
-    Base *base = generate();
+    Base *base;
+    
+    base = generate();
     identify(base);
     identify(*base);
+    identify(NULL);
+    delete (base);
     return (0);
 }
