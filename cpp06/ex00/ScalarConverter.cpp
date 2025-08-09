@@ -93,11 +93,20 @@ std::string getInt(const std::string &input, int type)
 
 std::string getFloat(const std::string &input, int type)
 {
-    int res;
+    float res;
     std::stringstream ss;
+	std::string floatStr;
 
     if (type == FLOAT)
-        return (input);
+    {
+        floatStr = input.substr(0, input.length() - 1);
+        res = std::atof(floatStr.c_str());
+        if (res == static_cast<int>(res))
+            ss << res << ".0f";
+        else
+            ss << res << "f";
+        return (ss.str());
+    }
     if (type == SPECIAL)
     {
         if (input == "nanf" || input == "inf" || input == "-inf" || input == "+inf")
@@ -105,16 +114,25 @@ std::string getFloat(const std::string &input, int type)
         else
             return (input + "f");
     }
-    if (type == INT || type == DOUBLE)
+    if (type == INT)
     {
-        res = atoi(input.c_str());
-        ss << static_cast<float>(res) << ".0f";
+        res = static_cast<float>(atoi(input.c_str()));
+        ss << res << ".0f";
+        return (ss.str());
+    }
+    if (type == DOUBLE)
+    {
+        res = static_cast<float>(atof(input.c_str()));
+        if (res == static_cast<int>(res))
+            ss << res << ".0f";
+        else
+            ss << res << "f";
         return (ss.str());
     }
     if (type == CHAR)
     {
-        res = static_cast<int>(input.c_str()[0]);
-        ss << static_cast<float>(res) << ".0f";
+        res = static_cast<float>(input.c_str()[0]);
+        ss << res << ".0f";
         return (ss.str());
     }
     return (ss.str());
@@ -146,7 +164,10 @@ std::string getDouble(const std::string &input, int type)
     {
         std::string floatStr = input.substr(0, input.length() - 1);
         res = std::atof(floatStr.c_str());
-        ss << res << ".0";
+        if (res == static_cast<int>(res))
+            ss << res << ".0";
+        else
+            ss << res;
         return (ss.str());
     }
     if (type == CHAR)
@@ -158,10 +179,57 @@ std::string getDouble(const std::string &input, int type)
     return (ss.str());
 }
 
+int checkDigitsDotAndF(const std::string &input)
+{
+    int dot_count = 0;
+    int f_count = 0;
+	int digit_count = 0;
+	int i;
+
+	i = 0;
+    while (i < input.length())
+    {
+        if (isdigit(input[i]))
+            digit_count++;
+        else if (input[i] == '.')
+            dot_count++;
+        else if (input[i] == 'f' && isdigit(input[i - 1]))
+            f_count++;
+        else
+            return (-1);
+        i++;
+    }
+    if (dot_count > 1 || f_count > 1 || digit_count == 0)
+        return (-1);
+    return (0);
+}
+
+int isAllDigits(const std::string &input)
+{
+    unsigned int i;
+
+	i = 0;
+    if (input.empty())
+        return (-1);
+    if (input[0] == '+' || input[0] == '-')
+        i = 1;
+    if (i == input.length())
+        return (-1);
+    while (i < input.length())
+    {
+        if (!isdigit(input[i]))
+            return (-1);
+        i++;
+    }
+    return (1);
+}
+
 int getType(const std::string &input)
 {
     if (input.find('.') != std::string::npos)
     {
+		if (checkDigitsDotAndF(input) == -1)
+			return (UNDEFINED);
         if (input[input.length() - 1] == '.')
             return (UNDEFINED);
         if (input.find('f') != std::string::npos)
@@ -178,8 +246,8 @@ int getType(const std::string &input)
         return (SPECIAL);
     else if (input.find('f') != std::string::npos)
         return (UNDEFINED);
-    else if (isdigit(input[0]))
-        return (INT);
+	else if (isAllDigits(input))
+		return (INT);
     else if (input.length() == 1 && isprint(input[0]))
         return (CHAR);
     return (UNDEFINED);

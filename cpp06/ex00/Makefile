@@ -2,8 +2,8 @@ FILES       = ScalarConverter main
 
 NAME        = convert
 
-CC          = c++
-CCFLAGS     = -Wall -Wextra -Werror -std=c++98
+CXX          = c++
+CXXFLAGS     = -Wall -Wextra -Werror -std=c++98
 RM          = rm -rf
 
 OBJ_DIR     = .obj/
@@ -15,12 +15,12 @@ vpath %.cpp ./
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(CCFLAGS) -o $(NAME)
+	@$(CXX) $(OBJS) $(CXXFLAGS) -o $(NAME)
 	@echo "$(DARKBLUE)-== $(NAME) created! ツ ==-$(DEFAULT)"
 
 $(OBJ_DIR)%.o: %.cpp
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CCFLAGS) -c -o $@ $< 
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJS)

@@ -16,9 +16,14 @@
 #pragma once
 
 #include <iostream>
-#include "Data.hpp"
 #include <stdint.h>
 
+struct Data
+{
+	std::string intraLogin;
+	std::string moduleName;
+	int grade;
+};
 
 class Serializer
 {
