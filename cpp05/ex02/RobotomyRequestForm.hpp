@@ -19,12 +19,12 @@
 
 class RobotomyRequestForm : public AForm
 {
-private:
+  private:
     std::string _target;
     std::string _name;
     virtual void action() const;
 
-public:
+  public:
     RobotomyRequestForm(void);
     RobotomyRequestForm(std::string target);
     ~RobotomyRequestForm();
@@ -33,7 +33,7 @@ public:
 
     class RobotizationFailed : public std::exception
     {
-    public:
+      public:
         virtual const char *what() const throw();
     };
 };

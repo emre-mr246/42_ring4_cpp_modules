@@ -2,3 +2,4 @@
 *.o
 node_modules
 .obj
+.clang-format

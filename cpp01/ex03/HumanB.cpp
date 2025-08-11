@@ -12,25 +12,26 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string &name): _name(name)
+HumanB::HumanB(const std::string &name) : _name(name)
 {
-	this->_weapon = NULL;
-	std::cout << "HumanB " << name << " created with no weapon" << std::endl;
+    this->_weapon = NULL;
+    std::cout << "HumanB " << name << " created with no weapon" << std::endl;
 }
 
 HumanB::~HumanB(void)
 {
-	std::cout << "HumanB " << this->_name << " destroyed" << std::endl;
+    std::cout << "HumanB " << this->_name << " destroyed" << std::endl;
 }
 
-void	HumanB::attack(void)
+void HumanB::attack(void)
 {
-	if (this->_weapon == NULL)
-		std::cout << this->_name << " attacks with his hand" << std::endl;
-	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
+    if (this->_weapon == NULL)
+        std::cout << this->_name << " attacks with his hand" << std::endl;
+    std::cout << this->_name << " attacks with his " << this->_weapon->getType()
+              << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &weapon)
 {
-	this->_weapon = &weapon;
+    this->_weapon = &weapon;
 }

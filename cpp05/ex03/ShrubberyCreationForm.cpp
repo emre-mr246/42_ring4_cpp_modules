@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137), _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm(void)
+    : AForm("ShrubberyCreationForm", 145, 137), _target("default")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+    : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
 }
 
@@ -26,12 +28,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src): AForm(src), _target(src._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
+    : AForm(src), _target(src._target)
 {
     *this = src;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
+ShrubberyCreationForm &
+ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
     if (this == &src)
         return (*this);
@@ -79,12 +83,12 @@ void ShrubberyCreationForm::action() const
     file << "   .-' '        '-._______.-'     '  ." << std::endl;
     file << "        .      ~," << std::endl;
     file << "    .       .   |\\   .    ' '-." << std::endl;
-    
+
     file.close();
     std::cout << "Shrubbery created for " << this->_target << "!" << std::endl;
 }
 
 const char *ShrubberyCreationForm::ShrubberyCreationFailed::what() const throw()
 {
-	return ("Shrubbery creation failed!");
+    return ("Shrubbery creation failed!");
 }

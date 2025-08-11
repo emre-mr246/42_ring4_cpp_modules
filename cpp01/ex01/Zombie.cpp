@@ -14,21 +14,21 @@
 
 Zombie::Zombie(void)
 {
-	this->_name = "unnamed";
-	std::cout << "Zombie \"" << this->_name << "\" created!" << std::endl;
+    this->_name = "unnamed";
+    std::cout << "Zombie \"" << this->_name << "\" created!" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie \"" << this->_name << "\" destroyed!" << std::endl;
+    std::cout << "Zombie \"" << this->_name << "\" destroyed!" << std::endl;
 }
 
-void	Zombie::announce()
+void Zombie::announce()
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::setName(std::string name)
+void Zombie::setName(std::string name)
 {
-	this->_name = name;
+    this->_name = name;
 }

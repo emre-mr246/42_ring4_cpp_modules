@@ -17,7 +17,7 @@
 
 class Cure : public AMateria
 {
-public:
+  public:
     Cure();
     ~Cure();
     Cure(const Cure &ref);

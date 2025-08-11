@@ -17,7 +17,7 @@
 
 class Ice : public AMateria
 {
-public:
+  public:
     Ice();
     ~Ice();
     Ice(const Ice &ref);

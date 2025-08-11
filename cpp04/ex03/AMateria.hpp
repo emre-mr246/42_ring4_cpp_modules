@@ -15,23 +15,23 @@
 
 #pragma once
 
-#include <iostream>
 #include "ICharacter.hpp"
+#include <iostream>
 
 class AMateria
 {
-protected:
+  protected:
     std::string _type;
 
-public:
+  public:
     AMateria(void);
     AMateria(const std::string &type);
     virtual ~AMateria();
     AMateria(const AMateria &src);
     AMateria &operator=(const AMateria &src);
     virtual std::string const &getType() const;
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    virtual AMateria *clone() const = 0;
+    virtual void use(ICharacter &target);
 };
 
 #endif

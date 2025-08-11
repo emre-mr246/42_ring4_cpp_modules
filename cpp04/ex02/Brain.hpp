@@ -19,16 +19,16 @@
 
 class Brain
 {
-public:
-	Brain(void);
-	virtual ~Brain();
-	Brain(const Brain &src);
-	Brain &operator=(const Brain &src);
-	void setIdea(unsigned int i, std::string idea);
-	const std::string getIdea(unsigned int i) const;
+  public:
+    Brain(void);
+    virtual ~Brain();
+    Brain(const Brain &src);
+    Brain &operator=(const Brain &src);
+    void setIdea(unsigned int i, std::string idea);
+    const std::string getIdea(unsigned int i) const;
 
-protected:
-	std::string _ideas[100];
+  protected:
+    std::string _ideas[100];
 };
 
 #endif

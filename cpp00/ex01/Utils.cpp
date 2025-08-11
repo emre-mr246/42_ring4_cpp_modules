@@ -16,51 +16,51 @@
 #include <iostream>
 #include <unistd.h>
 
-bool	is_valid_input(const std::string &str)
+bool is_valid_input(const std::string &str)
 {
-	size_t	i;
-	char	c;
+    size_t i;
+    char c;
 
-	if (str.empty())
-		return (false);
-	i = 0;
-	while (i < str.length())
-	{
-		c = str[i];
-		if (!std::isalnum(c) && c != ' ')
-			return (false);
-		i++;
-	}
-	return (true);
+    if (str.empty())
+        return (false);
+    i = 0;
+    while (i < str.length())
+    {
+        c = str[i];
+        if (!std::isalnum(c) && c != ' ')
+            return (false);
+        i++;
+    }
+    return (true);
 }
 
-str	get_input(str input_str)
+str get_input(str input_str)
 {
-	str	line;
+    str line;
 
-	std::cout << input_str;
-	std::getline(std::cin, line);
-	while (line.empty() || !is_valid_input(line))
-	{
-		system("clear");
-		std::cout << "Invalid input. Please try again." << std::endl;
-		sleep(1);
-		system("clear");
-		std::cout << input_str;
-		std::getline(std::cin, line);
-	}
-	return (line);
+    std::cout << input_str;
+    std::getline(std::cin, line);
+    while (line.empty() || !is_valid_input(line))
+    {
+        system("clear");
+        std::cout << "Invalid input. Please try again." << std::endl;
+        sleep(1);
+        system("clear");
+        std::cout << input_str;
+        std::getline(std::cin, line);
+    }
+    return (line);
 }
 
 str PhoneBook::truncate(const str &str)
 {
-	if (str.length() > 9)
-		return (str.substr(0, 9) + ".");
-	return (str);
+    if (str.length() > 9)
+        return (str.substr(0, 9) + ".");
+    return (str);
 }
 
 bool PhoneBook::is_valid_index(const str &input, int index)
 {
-	return (!(index < 0 || index >= contactCount || (index == 0
-				&& input[0] != '0')));
+    return (!(index < 0 || index >= contactCount ||
+              (index == 0 && input[0] != '0')));
 }

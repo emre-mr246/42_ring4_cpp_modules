@@ -15,21 +15,21 @@
 MateriaSource::MateriaSource(void)
 {
     for (int i = 0; i < 4; i++)
-		this->_inventory[i] = NULL;
+        this->_inventory[i] = NULL;
     std::cout << "Default constructor called for MateriaSource." << std::endl;
 }
 
 MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
-	{
-		if (this->_inventory[i])
-			delete (this->_inventory[i]);
-	}
+    {
+        if (this->_inventory[i])
+            delete (this->_inventory[i]);
+    }
     std::cout << "Destructor called for MateriaSource." << std::endl;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &src): IMateriaSource(src)
+MateriaSource::MateriaSource(const MateriaSource &src) : IMateriaSource(src)
 {
     *this = src;
     std::cout << "Copy constructor called for MateriaSource." << std::endl;
@@ -37,26 +37,28 @@ MateriaSource::MateriaSource(const MateriaSource &src): IMateriaSource(src)
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &src)
 {
-    for(int i = 0; i < 4; i++)
-	{
-		if (this->_inventory[i])
-			delete (this->_inventory[i]);
-		if (src._inventory[i])
-			this->_inventory[i] = (src._inventory[i])->clone();
-	}
-    std::cout << "Copy assignment operator called for MateriaSource." << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->_inventory[i])
+            delete (this->_inventory[i]);
+        if (src._inventory[i])
+            this->_inventory[i] = (src._inventory[i])->clone();
+    }
+    std::cout << "Copy assignment operator called for MateriaSource."
+              << std::endl;
     return (*this);
 }
 
-void MateriaSource:: learnMateria(AMateria *materia)
+void MateriaSource::learnMateria(AMateria *materia)
 {
     for (int i = 0; i < 4; ++i)
     {
         if ((this->_inventory)[i] == NULL)
         {
             (this->_inventory)[i] = materia;
-            std::cout << "Materia " << materia->getType() << " learned." << std::endl;
-            return ;
+            std::cout << "Materia " << materia->getType() << " learned."
+                      << std::endl;
+            return;
         }
         else
             std::cout << "Slot " << i << " is not empty!" << std::endl;
@@ -64,7 +66,7 @@ void MateriaSource:: learnMateria(AMateria *materia)
     std::cout << "Can't learn more than 4 Materia.\n";
 }
 
-AMateria* MateriaSource::createMateria(std::string const &type)
+AMateria *MateriaSource::createMateria(std::string const &type)
 {
     for (int i = 0; i < 4; ++i)
     {
@@ -84,10 +86,11 @@ void MateriaSource::getInventory()
 
     std::cout << "== Inventory ==" << std::endl;
     i = 0;
-    while(i < 4)
+    while (i < 4)
     {
         if (this->_inventory[i])
-            std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
+            std::cout << "[" << i << "] " << this->_inventory[i]->getType()
+                      << std::endl;
         i++;
     }
 }

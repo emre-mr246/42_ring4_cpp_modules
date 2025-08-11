@@ -4,23 +4,23 @@
 #pragma once
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 #include <iostream>
 
-class DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-public:
-	DiamondTrap();	
-	DiamondTrap(const std::string &name);
-	~DiamondTrap();
-	DiamondTrap(const DiamondTrap &copy);
-	DiamondTrap &operator=(const DiamondTrap &copy);
+  public:
+    DiamondTrap();
+    DiamondTrap(const std::string &name);
+    ~DiamondTrap();
+    DiamondTrap(const DiamondTrap &copy);
+    DiamondTrap &operator=(const DiamondTrap &copy);
     void whoAmI();
-	void printStats();
+    void printStats();
 
-private:
+  private:
     std::string _name;
 };
 

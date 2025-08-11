@@ -12,23 +12,25 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(const std::string &name, Weapon &weapon): _name(name), _weapon(weapon)
+HumanA::HumanA(const std::string &name, Weapon &weapon)
+    : _name(name), _weapon(weapon)
 {
-	std::cout << "HumanA " << name << " created with ";
-	std::cout << weapon.getType() << std::endl;
+    std::cout << "HumanA " << name << " created with ";
+    std::cout << weapon.getType() << std::endl;
 }
 
 HumanA::~HumanA(void)
 {
-	std::cout << "HumanA " << this->_name << " destroyed" << std::endl;
+    std::cout << "HumanA " << this->_name << " destroyed" << std::endl;
 }
 
-void	HumanA::setWeapon(const Weapon &weapon)
+void HumanA::setWeapon(const Weapon &weapon)
 {
-	this->_weapon = weapon;
+    this->_weapon = weapon;
 }
 
-void	HumanA::attack(void)
+void HumanA::attack(void)
 {
-	std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl;
+    std::cout << this->_name << " attacks with his " << this->_weapon.getType()
+              << std::endl;
 }

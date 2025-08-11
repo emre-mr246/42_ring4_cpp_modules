@@ -55,7 +55,8 @@ Character &Character::operator=(const Character &src)
         {
             this->_inventory[i] = (src._inventory[i])->clone();
             if (!this->_inventory[i])
-                std::cerr << "Clone failed for inventory item " << i << std::endl;
+                std::cerr << "Clone failed for inventory item " << i
+                          << std::endl;
         }
         else
             this->_inventory[i] = NULL;
@@ -73,7 +74,8 @@ void Character::equip(AMateria *materia)
 {
     if (!materia)
     {
-        std::cout << this->_name << " attempted to equip an empty materia." << std::endl;
+        std::cout << this->_name << " attempted to equip an empty materia."
+                  << std::endl;
         return;
     }
     for (int i = 0; i < 4; ++i)
@@ -81,26 +83,31 @@ void Character::equip(AMateria *materia)
         if (this->_inventory[i] == NULL)
         {
             this->_inventory[i] = materia;
-            std::cout << this->_name << " successfully equipped " << materia->getType() << " in slot " << i << std::endl;
+            std::cout << this->_name << " successfully equipped "
+                      << materia->getType() << " in slot " << i << std::endl;
             return;
         }
     }
-    std::cout << this->_name << " can't equip more than 4 Materia." << std::endl;
+    std::cout << this->_name << " can't equip more than 4 Materia."
+              << std::endl;
 }
 
 void Character::unequip(int i)
 {
     if (i < 0 || i > 4)
     {
-        std::cout << this->_name << ": Invalid slot index " << i << ". Slot index must be between 0 and 4." << std::endl;
+        std::cout << this->_name << ": Invalid slot index " << i
+                  << ". Slot index must be between 0 and 4." << std::endl;
         return;
     }
     if (!this->_inventory[i])
     {
-        std::cout << this->_name << ": Slot " << i << " is empty! No item to unequip." << std::endl;
+        std::cout << this->_name << ": Slot " << i
+                  << " is empty! No item to unequip." << std::endl;
         return;
     }
-    std::cout << this->_name << ": " << this->_inventory[i]->getType() << " unequipped from slot " << i << "." << std::endl;
+    std::cout << this->_name << ": " << this->_inventory[i]->getType()
+              << " unequipped from slot " << i << "." << std::endl;
     this->_inventory[i] = NULL;
 }
 
@@ -108,7 +115,8 @@ void Character::use(int i, ICharacter &target)
 {
     if (i < 0 || i > 4)
     {
-        std::cout << this->_name << ": Invalid slot index " << i << ". Slot index must be between 0 and 4." << std::endl;
+        std::cout << this->_name << ": Invalid slot index " << i
+                  << ". Slot index must be between 0 and 4." << std::endl;
         return;
     }
     std::cout << this->getName() << ": Using " << this->_inventory[i]->getType()
@@ -127,7 +135,8 @@ void Character::printInventory() const
     while (i < 4)
     {
         if (this->_inventory[i])
-            std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
+            std::cout << "[" << i << "] " << this->_inventory[i]->getType()
+                      << std::endl;
         i++;
     }
     std::cout << "===== END ==" << std::endl;

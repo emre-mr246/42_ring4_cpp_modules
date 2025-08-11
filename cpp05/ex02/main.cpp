@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
@@ -45,29 +45,23 @@ int main()
         std::cout << *robotomyForm2 << std::endl;
         emre.signForm(*robotomyForm2);
         emre.executeForm(*robotomyForm2);
-        delete(robotomyForm2);
-    }
-    catch (const AForm::GradeTooHighException &e)
+        delete (robotomyForm2);
+    } catch (const AForm::GradeTooHighException &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const AForm::GradeTooLowException &e)
+    } catch (const AForm::GradeTooLowException &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const AForm::IsNotSignedException &e)
+    } catch (const AForm::IsNotSignedException &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const RobotomyRequestForm::RobotizationFailed &e)
+    } catch (const RobotomyRequestForm::RobotizationFailed &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const PresidentialPardonForm::PresidentialPardonFailed &e)
+    } catch (const PresidentialPardonForm::PresidentialPardonFailed &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const ShrubberyCreationForm::ShrubberyCreationFailed &e)
+    } catch (const ShrubberyCreationForm::ShrubberyCreationFailed &e)
     {
         std::cerr << e.what() << std::endl;
     }

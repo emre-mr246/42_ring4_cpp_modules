@@ -15,17 +15,17 @@
 
 #pragma once
 
-#include <iostream>
 #include "Animal.hpp"
+#include <iostream>
 
 class Dog : public Animal
 {
-public:
-	Dog(void);
-	~Dog();
-	Dog(const Dog &src);
-	Dog &operator=(const Dog &src);
-	void makeSound(void) const;
+  public:
+    Dog(void);
+    ~Dog();
+    Dog(const Dog &src);
+    Dog &operator=(const Dog &src);
+    void makeSound(void) const;
 };
 
 #endif

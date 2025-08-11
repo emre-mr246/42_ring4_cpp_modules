@@ -10,34 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
 
-
-std::string extractFileName(const std::string& fullFileName)
+std::string extractFileName(const std::string &fullFileName)
 {
     std::size_t dotPosition = fullFileName.find_last_of('.');
-    
-    if (dotPosition == std::string::npos) 
-	{
+
+    if (dotPosition == std::string::npos)
+    {
         return (fullFileName);
     }
     return (fullFileName.substr(0, dotPosition));
 }
 
-
-void processLines(std::ifstream &file, std::string s1, std::string s2, std::ofstream &outfile)
+void processLines(std::ifstream &file, std::string s1, std::string s2,
+                  std::ofstream &outfile)
 {
     std::string line;
     size_t ptr;
     bool firstLine = true;
 
     while (std::getline(file, line))
-	{
+    {
         ptr = line.find(s1);
         while (ptr != std::string::npos)
-		{
+        {
             line.erase(ptr, s1.length());
             line.insert(ptr, s2);
             ptr = line.find(s1, ptr + s2.length());
@@ -59,7 +58,7 @@ int replace(std::string filename, std::string s1, std::string s2)
     outfileName = extractFileName(filename);
     outfile.open((outfileName + ".replace").c_str());
     if (!file.is_open() || !outfile.is_open())
-	{
+    {
         std::cerr << "Error opening files!" << std::endl;
         return (-1);
     }

@@ -19,15 +19,15 @@
 
 class WrongAnimal
 {
-public:
-	WrongAnimal(void);
-	virtual ~WrongAnimal();
-	WrongAnimal(const WrongAnimal &src);
-	WrongAnimal &operator=(const WrongAnimal &src);
-	void makeSound(void) const;
+  public:
+    WrongAnimal(void);
+    virtual ~WrongAnimal();
+    WrongAnimal(const WrongAnimal &src);
+    WrongAnimal &operator=(const WrongAnimal &src);
+    void makeSound(void) const;
 
-protected:
-	std::string _type;
+  protected:
+    std::string _type;
 };
 
 #endif

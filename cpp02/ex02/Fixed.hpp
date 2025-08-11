@@ -17,38 +17,38 @@
 
 class Fixed
 {
-public:
-	Fixed();
-	Fixed(const int value);
-	Fixed(const float value);
-	Fixed(const Fixed &copy);
-	~Fixed();
-	bool operator>(const Fixed fixed) const;
-	bool operator<(const Fixed fixed) const;
-	bool operator>=(const Fixed fixed) const;
-	bool operator<=(const Fixed fixed) const;
-	bool operator==(const Fixed fixed) const;
-	bool operator!=(const Fixed fixed) const;
-	float operator+(const Fixed fixed) const;
-	float operator-(const Fixed fixed) const;
-	float operator*(const Fixed fixed) const;
-	float operator/(const Fixed fixed) const;
-	Fixed operator++();
-	Fixed operator++(int);
-	Fixed operator--();
-	Fixed operator--(int);
-	static Fixed &min(Fixed &first, Fixed &second);
-	static const Fixed &min(Fixed const &first, Fixed const &second);
-	static Fixed &max(Fixed &first, Fixed &second);
-	static const Fixed &max(Fixed const &first, const Fixed &second);
-	float toFloat() const;
-	int toInt() const;
-	int getRawBits() const;
-	void setRawBits(const int raw);
+  public:
+    Fixed();
+    Fixed(const int value);
+    Fixed(const float value);
+    Fixed(const Fixed &copy);
+    ~Fixed();
+    bool operator>(const Fixed fixed) const;
+    bool operator<(const Fixed fixed) const;
+    bool operator>=(const Fixed fixed) const;
+    bool operator<=(const Fixed fixed) const;
+    bool operator==(const Fixed fixed) const;
+    bool operator!=(const Fixed fixed) const;
+    float operator+(const Fixed fixed) const;
+    float operator-(const Fixed fixed) const;
+    float operator*(const Fixed fixed) const;
+    float operator/(const Fixed fixed) const;
+    Fixed operator++();
+    Fixed operator++(int);
+    Fixed operator--();
+    Fixed operator--(int);
+    static Fixed &min(Fixed &first, Fixed &second);
+    static const Fixed &min(Fixed const &first, Fixed const &second);
+    static Fixed &max(Fixed &first, Fixed &second);
+    static const Fixed &max(Fixed const &first, const Fixed &second);
+    float toFloat() const;
+    int toInt() const;
+    int getRawBits() const;
+    void setRawBits(const int raw);
 
-private:
-	int _value;
-	static const int _numFracBits;
+  private:
+    int _value;
+    static const int _numFracBits;
 };
 
 std::ostream &operator<<(std::ostream &ostream, const Fixed &number);

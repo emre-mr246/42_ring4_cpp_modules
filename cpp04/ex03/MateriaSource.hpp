@@ -15,22 +15,22 @@
 
 #pragma once
 
-#include <iostream>
 #include "IMateriaSource.hpp"
+#include <iostream>
 
-class MateriaSource: public IMateriaSource
+class MateriaSource : public IMateriaSource
 {
-private:
-	AMateria *_inventory[4];
+  private:
+    AMateria *_inventory[4];
 
-public:
-	MateriaSource(void);
-	~MateriaSource();
-	MateriaSource(const MateriaSource &src);
-	MateriaSource &operator=(const MateriaSource &src);
-	void learnMateria(AMateria *materia);
-	AMateria* createMateria(std::string const & type);
-	void getInventory();
+  public:
+    MateriaSource(void);
+    ~MateriaSource();
+    MateriaSource(const MateriaSource &src);
+    MateriaSource &operator=(const MateriaSource &src);
+    void learnMateria(AMateria *materia);
+    AMateria *createMateria(std::string const &type);
+    void getInventory();
 };
 
 #endif

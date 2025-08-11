@@ -30,23 +30,23 @@ Point::~Point()
 
 Point &Point::operator=(const Point &src)
 {
-	if (this == &src)
-		return (*this);
-	return (*this);
+    if (this == &src)
+        return (*this);
+    return (*this);
 }
 
 const Fixed &Point::getX(void) const
 {
-	return (this->_x);
+    return (this->_x);
 }
 
 const Fixed &Point::getY(void) const
 {
-	return (this->_y);
+    return (this->_y);
 }
 
 std::ostream &operator<<(std::ostream &ostream, Point const point)
 {
-	ostream << "_x: " << point.getX() << " / _y: " << point.getY() << std::endl;
-	return (ostream);
+    ostream << "_x: " << point.getX() << " / _y: " << point.getY() << std::endl;
+    return (ostream);
 }

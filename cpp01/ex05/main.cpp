@@ -12,13 +12,13 @@
 
 #include "Vessel.hpp"
 
-int	main(void)
+int main(void)
 {
-	Vessel ves;
+    Vessel ves;
 
-	ves.complain("DEBUG");
-	ves.complain("INFO");
-	ves.complain("WARNING");
-	ves.complain("ERROR");
-	return (0);
+    ves.complain("DEBUG");
+    ves.complain("INFO");
+    ves.complain("WARNING");
+    ves.complain("ERROR");
+    return (0);
 }

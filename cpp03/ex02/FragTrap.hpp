@@ -18,17 +18,17 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap: public ClapTrap
+class FragTrap : public ClapTrap
 {
-public:
-	FragTrap();	
-	FragTrap(const std::string &name);
-	~FragTrap();
-	FragTrap(const FragTrap &copy);
-	FragTrap &operator=(const FragTrap &copy);
-	void attack(const std::string& target);
+  public:
+    FragTrap();
+    FragTrap(const std::string &name);
+    ~FragTrap();
+    FragTrap(const FragTrap &copy);
+    FragTrap &operator=(const FragTrap &copy);
+    void attack(const std::string &target);
     void highFivesGuys(void);
-	void beRepaired(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 #endif

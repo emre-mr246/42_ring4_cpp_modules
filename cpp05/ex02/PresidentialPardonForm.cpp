@@ -13,11 +13,13 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 25, 5), _target("default")
+PresidentialPardonForm::PresidentialPardonForm(void)
+    : AForm("PresidentialPardonForm", 25, 5), _target("default")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+    : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 }
 
@@ -25,12 +27,15 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src): AForm(src), _target(src._target)
+PresidentialPardonForm::PresidentialPardonForm(
+    const PresidentialPardonForm &src)
+    : AForm(src), _target(src._target)
 {
     *this = src;
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
+PresidentialPardonForm &
+PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
 {
     if (this == &src)
         return (*this);
@@ -42,10 +47,12 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::action() const
 {
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox."
+              << std::endl;
 }
 
-const char *PresidentialPardonForm::PresidentialPardonFailed::what() const throw()
+const char *PresidentialPardonForm::PresidentialPardonFailed::what() const
+    throw()
 {
-	return ("Presidential pardon failed!");
+    return ("Presidential pardon failed!");
 }

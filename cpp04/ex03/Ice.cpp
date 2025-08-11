@@ -23,7 +23,7 @@ Ice::~Ice()
     std::cout << "Destructor called for Ice." << std::endl;
 }
 
-Ice::Ice(const Ice &src): AMateria(src)
+Ice::Ice(const Ice &src) : AMateria(src)
 {
     *this = src;
     std::cout << "Copy constructor called for Ice." << std::endl;
@@ -31,18 +31,19 @@ Ice::Ice(const Ice &src): AMateria(src)
 
 Ice &Ice::operator=(const Ice &src)
 {
-	std::cout << "Copy assignment operator called for Ice." << std::endl;
-	// if (this == &src)
-	// 	return (*this);
-	return (*this);
+    std::cout << "Copy assignment operator called for Ice." << std::endl;
+    // if (this == &src)
+    // 	return (*this);
+    return (*this);
 }
 
 void Ice::use(ICharacter &src)
 {
-    std::cout << "* shoots an ice bolt at " << src.getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << src.getName() << " *"
+              << std::endl;
 }
 
-AMateria	*Ice::clone(void) const
+AMateria *Ice::clone(void) const
 {
     AMateria *clone = new Ice(*this);
     if (!clone)
@@ -52,7 +53,7 @@ AMateria	*Ice::clone(void) const
     return (clone);
 }
 
-std::string const & Ice::getType() const
+std::string const &Ice::getType() const
 {
     return (this->_type);
 }

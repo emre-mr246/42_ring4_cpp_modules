@@ -19,11 +19,11 @@
 
 class PresidentialPardonForm : public AForm
 {
-private:
+  private:
     std::string _target;
     virtual void action() const;
 
-public:
+  public:
     PresidentialPardonForm(void);
     PresidentialPardonForm(std::string target);
     ~PresidentialPardonForm();
@@ -32,7 +32,7 @@ public:
 
     class PresidentialPardonFailed : public std::exception
     {
-    public:
+      public:
         virtual const char *what() const throw();
     };
 };

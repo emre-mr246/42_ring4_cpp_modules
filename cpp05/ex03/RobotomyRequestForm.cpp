@@ -11,15 +11,17 @@
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <stdlib.h>
-#include <iostream>
 #include <ctime>
+#include <iostream>
+#include <stdlib.h>
 
-RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45), _target("default")
+RobotomyRequestForm::RobotomyRequestForm(void)
+    : AForm("RobotomyRequestForm", 72, 45), _target("default")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+    : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
@@ -27,12 +29,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src): AForm(src), _target(src._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
+    : AForm(src), _target(src._target)
 {
     *this = src;
 }
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
+RobotomyRequestForm &
+RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
 {
     if (this == &src)
         return (*this);
@@ -47,11 +51,12 @@ void RobotomyRequestForm::action() const
     int number;
 
     srand(time(0));
-    number =  rand() % 2;
+    number = rand() % 2;
     if (number == 0)
     {
         std::cout << "**some drilling noises** " << std::endl;
-        std::cout << "Robotomy successful for " << this->_target << "!" << std::endl;
+        std::cout << "Robotomy successful for " << this->_target << "!"
+                  << std::endl;
     }
     else
     {
@@ -62,5 +67,5 @@ void RobotomyRequestForm::action() const
 
 const char *RobotomyRequestForm::RobotizationFailed::what() const throw()
 {
-	return ("Robotization failed!");
+    return ("Robotization failed!");
 }

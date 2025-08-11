@@ -19,11 +19,11 @@
 
 class ShrubberyCreationForm : public AForm
 {
-private:
+  private:
     std::string _target;
     virtual void action() const;
 
-public:
+  public:
     ShrubberyCreationForm(void);
     ShrubberyCreationForm(std::string target);
     ~ShrubberyCreationForm();
@@ -32,7 +32,7 @@ public:
 
     class ShrubberyCreationFailed : public std::exception
     {
-    public:
+      public:
         virtual const char *what() const throw();
     };
 };

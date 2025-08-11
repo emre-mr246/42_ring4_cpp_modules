@@ -36,8 +36,7 @@ int main()
     w->makeSound();
     delete (w);
 
-    std::cout << std::endl
-              << "== IDEA TEST ==" << std::endl;
+    std::cout << std::endl << "== IDEA TEST ==" << std::endl;
     std::cout << std::endl
               << "=======================================" << std::endl
               << std::endl;
@@ -54,8 +53,7 @@ int main()
 
     delete (dog);
 
-    std::cout << std::endl
-              << "== DEEP COPY TEST 1 ==" << std::endl;
+    std::cout << std::endl << "== DEEP COPY TEST 1 ==" << std::endl;
     std::cout << "=======================================" << std::endl;
 
     Dog dog_local1;
@@ -68,8 +66,7 @@ int main()
     std::cout << dog_local1.getIdea(1) << std::endl;
     std::cout << dog_local2.getIdea(1) << std::endl;
 
-    std::cout << std::endl
-              << "== DEEP COPY TEST 2 ==" << std::endl;
+    std::cout << std::endl << "== DEEP COPY TEST 2 ==" << std::endl;
     std::cout << "=======================================" << std::endl;
 
     Dog *dog_copy = new Dog();
@@ -83,8 +80,7 @@ int main()
     delete (dog_copy);
     delete (dog_copy2);
 
-    std::cout << std::endl
-              << "== DEEP COPY TEST 3 ==" << std::endl;
+    std::cout << std::endl << "== DEEP COPY TEST 3 ==" << std::endl;
     std::cout << "=======================================" << std::endl;
 
     Dog dog_test;

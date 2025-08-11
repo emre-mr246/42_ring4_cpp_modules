@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <cctype>
+#include <iostream>
 
 int main(int ac, char **av)
 {

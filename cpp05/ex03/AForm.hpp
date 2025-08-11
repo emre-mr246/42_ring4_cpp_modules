@@ -15,26 +15,27 @@
 
 #pragma once
 
-#include <iostream>
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 class Bureaucrat;
 
 class AForm
 {
-private:
+  private:
     const std::string _name;
     bool _isSigned;
     const unsigned int _gradeToSign;
     const unsigned int _gradeToExecute;
     virtual void action() const = 0;
 
-public:
-	AForm(void);
-    AForm(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
-	AForm(const AForm &src);
-	virtual ~AForm();
-	AForm &operator=(const AForm &src);
+  public:
+    AForm(void);
+    AForm(const std::string name, unsigned int gradeToSign,
+          unsigned int gradeToExecute);
+    AForm(const AForm &src);
+    virtual ~AForm();
+    AForm &operator=(const AForm &src);
 
     std::string getName() const;
     unsigned int getGradeRequired() const;
@@ -46,20 +47,19 @@ public:
 
     class GradeTooHighException : public std::exception
     {
-    public:
+      public:
         virtual const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
-    public:
+      public:
         virtual const char *what() const throw();
     };
     class IsNotSignedException : public std::exception
     {
-    public: 
+      public:
         virtual const char *what() const throw();
     };
-
 };
 
 std::ostream &operator<<(std::ostream &os, AForm const &src);

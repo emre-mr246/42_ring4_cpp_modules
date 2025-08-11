@@ -18,20 +18,20 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap: public ClapTrap
+class ScavTrap : public ClapTrap
 {
-public:
-	ScavTrap();	
-	ScavTrap(const std::string &name);
-	~ScavTrap();
-	ScavTrap(const ScavTrap &copy);
-	ScavTrap &operator=(const ScavTrap &copy);
-	void attack(const std::string& target);
+  public:
+    ScavTrap();
+    ScavTrap(const std::string &name);
+    ~ScavTrap();
+    ScavTrap(const ScavTrap &copy);
+    ScavTrap &operator=(const ScavTrap &copy);
+    void attack(const std::string &target);
     void guardGate();
-	void changeGatekeeperMode();
+    void changeGatekeeperMode();
 
-private:
-	bool _gatekeeperMode;
+  private:
+    bool _gatekeeperMode;
 };
 
 #endif

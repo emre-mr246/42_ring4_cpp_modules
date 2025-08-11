@@ -19,7 +19,7 @@ int main()
     {
         Bureaucrat emre("Emre", 2);
         Bureaucrat Meeseeks;
-        
+
         std::cout << Meeseeks << std::endl;
         std::cout << emre << std::endl;
         emre.incrementGrade();
@@ -27,12 +27,10 @@ int main()
         emre.incrementGrade();
         std::cout << emre << std::endl;
         emre.incrementGrade();
-    }
-    catch (const Bureaucrat::GradeTooHighException &e)
+    } catch (const Bureaucrat::GradeTooHighException &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException &e)
+    } catch (const Bureaucrat::GradeTooLowException &e)
     {
         std::cerr << e.what() << std::endl;
     }

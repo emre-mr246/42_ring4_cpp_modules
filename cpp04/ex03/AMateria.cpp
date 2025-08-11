@@ -12,12 +12,12 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(void): _type("none")
+AMateria::AMateria(void) : _type("none")
 {
     std::cout << "Default constructor called for AMateria." << std::endl;
 }
 
-AMateria::AMateria(const std::string &type): _type(type)
+AMateria::AMateria(const std::string &type) : _type(type)
 {
     std::cout << "Constructor called for AMateria." << std::endl;
 }
@@ -40,12 +40,12 @@ AMateria &AMateria::operator=(const AMateria &src)
     return (*this);
 }
 
-void AMateria::use(ICharacter& target)
+void AMateria::use(ICharacter &target)
 {
-	std::cout << "AMateria used on " << target.getName() << "." << std::endl;
+    std::cout << "AMateria used on " << target.getName() << "." << std::endl;
 }
 
-std::string const & AMateria::getType() const
+std::string const &AMateria::getType() const
 {
     return (this->_type);
 }

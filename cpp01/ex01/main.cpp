@@ -12,19 +12,19 @@
 
 #include "Zombie.hpp"
 
-int	main(void)
+int main(void)
 {
-	int	horde_size;
+    int horde_size;
     int i;
 
     horde_size = 5;
-	Zombie *horde = zombieHorde(horde_size, "Emre");
+    Zombie *horde = zombieHorde(horde_size, "Emre");
     i = 0;
-	while (i < horde_size)
+    while (i < horde_size)
     {
-		horde[i].announce();
+        horde[i].announce();
         i++;
     }
-	delete[] horde;
+    delete[] horde;
     return (0);
 }

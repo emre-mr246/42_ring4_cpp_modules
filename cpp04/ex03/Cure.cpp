@@ -23,7 +23,7 @@ Cure::~Cure()
     std::cout << "Destructor called for Cure." << std::endl;
 }
 
-Cure::Cure(const Cure &src): AMateria(src)
+Cure::Cure(const Cure &src) : AMateria(src)
 {
     *this = src;
     std::cout << "Copy constructor called for Cure." << std::endl;
@@ -41,12 +41,12 @@ void Cure::use(ICharacter &src)
     std::cout << "* heals " << src.getName() << "\'s wounds *" << std::endl;
 }
 
-AMateria	*Cure::clone(void) const
+AMateria *Cure::clone(void) const
 {
-	return (new Cure(*this));
+    return (new Cure(*this));
 }
 
-std::string const & Cure::getType() const
+std::string const &Cure::getType() const
 {
     return (this->_type);
 }
