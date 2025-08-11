@@ -10,23 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include "Array.hpp"
+#include <iostream>
 
-template <typename T> void print(T &element)
+int main(int, char **)
 {
-    std::cout << element << std::endl;
-}
+    Array<int> intArray(5);
+    int i;
 
-int main(void)
-{
-    double doubleTab[] = {4.0, 2.0};
-    iter(doubleTab, 2, print);
+    i = 0;
+    while (i < 5)
+    {
+        intArray[i] = i;
+        i++;
+    }
+    intArray.printArray();
 
-    std::string strTab[] = {"Hi", "there!"};
-    iter(strTab, 2, print);
+    Array<int> intArrayCopy(intArray);
+    intArrayCopy.printArray();
 
-    int intTab[] = {42, 246};
-    iter(intTab, 2, print);
+    intArrayCopy[0] = 42;
+    intArrayCopy.printArray();
+    intArray.printArray();
 
     return (0);
 }
