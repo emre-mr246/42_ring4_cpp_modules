@@ -14,12 +14,12 @@
 
 B::B(void)
 {
-	std::cout << "Default constructor called for B" << std::endl;
+    std::cout << "Default constructor called for B" << std::endl;
 }
 
 B::~B()
 {
-	std::cout << "Destructor called for B" << std::endl;
+    std::cout << "Destructor called for B" << std::endl;
 }
 
 B::B(const B &src)
@@ -27,4 +27,3 @@ B::B(const B &src)
     (void)src;
     std::cout << "Copy constructor called for B" << std::endl;
 }
-

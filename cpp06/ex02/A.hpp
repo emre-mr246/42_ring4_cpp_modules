@@ -17,12 +17,12 @@
 
 #include "Base.hpp"
 
-class A: public Base
+class A : public Base
 {
-    public:
-        A(void);
-        ~A();
-        A(const A &src);
+  public:
+    A(void);
+    ~A();
+    A(const A &src);
 };
 
 #endif

@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                     :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                     :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,17 +12,17 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <sstream>
 #include <cstdlib>
+#include <sstream>
 
 ScalarConverter::ScalarConverter(void)
 {
-	std::cout << "Default constructor called for ScalarConverter" << std::endl;
+    std::cout << "Default constructor called for ScalarConverter" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter()
 {
-	std::cout << "Destructor called for ScalarConverter" << std::endl;
+    std::cout << "Destructor called for ScalarConverter" << std::endl;
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &src)
@@ -34,7 +35,8 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
 {
     if (this == &src)
         return (*this);
-    std::cout << "Copy assignment operator called for ScalarConverter" << std::endl;
+    std::cout << "Copy assignment operator called for ScalarConverter"
+              << std::endl;
     return (*this);
 }
 
@@ -49,10 +51,18 @@ void print(std::string c, std::string i, std::string f, std::string d)
 std::string getChar(const std::string &input, int type)
 {
     int a;
-    
+
     if (type == SPECIAL)
         return ("impossible");
-    a = atoi(input.c_str()); 
+    if (input.length() == 1 && !isdigit(input[0]))
+    {
+        if (static_cast<unsigned char>(input[0]) < 32 ||
+            static_cast<unsigned char>(input[0]) > 126)
+            return ("Non displayable");
+        else
+            return std::string("'") + input[0] + "'";
+    }
+    a = atoi(input.c_str());
     if (type == DOUBLE || type == FLOAT || type == INT)
     {
         if (a < 32 || a > 126)
@@ -60,7 +70,7 @@ std::string getChar(const std::string &input, int type)
         else
             return std::string("'") + static_cast<char>(a) + "'";
     }
-    return ("\'" + input + "\'");
+    return ("impossible");
 }
 
 std::string getInt(const std::string &input, int type)
@@ -69,24 +79,25 @@ std::string getInt(const std::string &input, int type)
     std::stringstream ss;
     std::string floatStr;
 
-    if (type == INT)
-        return (input);
     if (type == SPECIAL)
         return ("impossible");
+    if (type == INT)
+        return (input);
     if (type == FLOAT)
     {
         floatStr = input.substr(0, input.length() - 1);
         res = static_cast<int>(std::atof(floatStr.c_str()));
-        ss << res;
-        return (ss.str());
     }
-    if (type == DOUBLE)
+    else if (type == DOUBLE)
     {
-        res = std::atoi(input.c_str());
-        ss << static_cast<int>(res);
-        return (ss.str());
+        res = static_cast<int>(std::atof(input.c_str()));
     }
-    res = static_cast<int>(input.c_str()[0]);
+    else if (type == CHAR || (input.length() == 1 && !isdigit(input[0])))
+    {
+        res = static_cast<unsigned char>(input[0]);
+    }
+    else
+        return ("impossible");
     ss << res;
     return (ss.str());
 }
@@ -95,7 +106,7 @@ std::string getFloat(const std::string &input, int type)
 {
     float res;
     std::stringstream ss;
-	std::string floatStr;
+    std::string floatStr;
 
     if (type == FLOAT)
     {
@@ -109,7 +120,8 @@ std::string getFloat(const std::string &input, int type)
     }
     if (type == SPECIAL)
     {
-        if (input == "nanf" || input == "inf" || input == "-inf" || input == "+inf")
+        if (input == "nanf" || input == "inf" || input == "-inf" ||
+            input == "+inf")
             return (input);
         else
             return (input + "f");
@@ -129,13 +141,13 @@ std::string getFloat(const std::string &input, int type)
             ss << res << "f";
         return (ss.str());
     }
-    if (type == CHAR)
+    if (type == CHAR || (input.length() == 1 && !isdigit(input[0])))
     {
-        res = static_cast<float>(input.c_str()[0]);
+        res = static_cast<unsigned char>(input[0]);
         ss << res << ".0f";
         return (ss.str());
     }
-    return (ss.str());
+    return ("impossible");
 }
 
 std::string getDouble(const std::string &input, int type)
@@ -147,7 +159,8 @@ std::string getDouble(const std::string &input, int type)
         return (input);
     if (type == SPECIAL)
     {
-        if (input == "nan" || input == "inf" || input == "-inf" || input == "+inf")
+        if (input == "nan" || input == "inf" || input == "-inf" ||
+            input == "+inf")
             return (input);
         else if (input == "nanf")
             return (input.substr(0, input.length() - 1));
@@ -170,23 +183,23 @@ std::string getDouble(const std::string &input, int type)
             ss << res;
         return (ss.str());
     }
-    if (type == CHAR)
+    if (type == CHAR || (input.length() == 1 && !isdigit(input[0])))
     {
-        res = static_cast<double>(input.c_str()[0]);
+        res = static_cast<unsigned char>(input[0]);
         ss << res << ".0";
         return (ss.str());
     }
-    return (ss.str());
+    return ("impossible");
 }
 
 int checkDigitsDotAndF(const std::string &input)
 {
     int dot_count = 0;
     int f_count = 0;
-	int digit_count = 0;
-	int i;
+    int digit_count = 0;
+    unsigned int i;
 
-	i = 0;
+    i = 0;
     while (i < input.length())
     {
         if (isdigit(input[i]))
@@ -208,7 +221,7 @@ int isAllDigits(const std::string &input)
 {
     unsigned int i;
 
-	i = 0;
+    i = 0;
     if (input.empty())
         return (-1);
     if (input[0] == '+' || input[0] == '-')
@@ -228,8 +241,8 @@ int getType(const std::string &input)
 {
     if (input.find('.') != std::string::npos)
     {
-		if (checkDigitsDotAndF(input) == -1)
-			return (UNDEFINED);
+        if (checkDigitsDotAndF(input) == -1)
+            return (UNDEFINED);
         if (input[input.length() - 1] == '.')
             return (UNDEFINED);
         if (input.find('f') != std::string::npos)
@@ -241,32 +254,38 @@ int getType(const std::string &input)
         else
             return (DOUBLE);
     }
-    else if (input == "nan" || input == "nanf" ||
-             input == "-inf" || input == "+inf" || input == "inf")
+    else if (input == "nan" || input == "nanf" || input == "-inf" ||
+             input == "+inf" || input == "inf")
         return (SPECIAL);
     else if (input.find('f') != std::string::npos)
+    {
+        if (input.length() == 1)
+            return (CHAR);
         return (UNDEFINED);
-	else if (isAllDigits(input))
-		return (INT);
+    }
+    else if (isAllDigits(input) == 1)
+        return (INT);
     else if (input.length() == 1 && isprint(input[0]))
         return (CHAR);
     return (UNDEFINED);
 }
 
 void ScalarConverter::convert(const std::string &input)
-{   
+{
     int type;
 
-	if (input.empty())
-	{
+    if (input.empty())
+    {
         std::cerr << "Error: Input is empty" << std::endl;
-		return ;
-	}
+        return;
+    }
     type = getType(input);
     if (type == UNDEFINED)
     {
-        std::cerr << "Error: Undefined type for input \"" << input << "\"" << std::endl;
-        return ;
+        std::cerr << "Error: Undefined type for input \"" << input << "\""
+                  << std::endl;
+        return;
     }
-    print(getChar(input, type), getInt(input, type), getFloat(input, type), getDouble(input, type));
+    print(getChar(input, type), getInt(input, type), getFloat(input, type),
+          getDouble(input, type));
 }

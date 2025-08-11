@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.cpp                                     :+:      :+:    :+:   */
+/*   A.cpp                                             :+:      :+:    :+:    */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,12 +14,12 @@
 
 A::A(void)
 {
-	std::cout << "Default constructor called for A" << std::endl;
+    std::cout << "Default constructor called for A" << std::endl;
 }
 
 A::~A()
 {
-	std::cout << "Destructor called for A" << std::endl;
+    std::cout << "Destructor called for A" << std::endl;
 }
 
 A::A(const A &src)
@@ -27,4 +27,3 @@ A::A(const A &src)
     (void)src;
     std::cout << "Copy constructor called for A" << std::endl;
 }
-

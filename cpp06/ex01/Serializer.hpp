@@ -20,22 +20,22 @@
 
 struct Data
 {
-	std::string intraLogin;
-	std::string moduleName;
-	int grade;
+    std::string intraLogin;
+    std::string moduleName;
+    int grade;
 };
 
 class Serializer
 {
-	private:
-		Serializer(void);
-		~Serializer();
-		Serializer(const Serializer &src);
-		Serializer &operator=(const Serializer &src);
+  private:
+    Serializer(void);
+    ~Serializer();
+    Serializer(const Serializer &src);
+    Serializer &operator=(const Serializer &src);
 
-	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+  public:
+    static uintptr_t serialize(Data *ptr);
+    static Data *deserialize(uintptr_t raw);
 };
 
 #endif

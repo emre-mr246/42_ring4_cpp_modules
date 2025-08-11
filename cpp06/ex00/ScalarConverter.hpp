@@ -1,7 +1,8 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                     :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                     :+:      :+:    :+:
+ */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,24 +20,24 @@
 
 enum e_type
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	SPECIAL,
-	UNDEFINED
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    SPECIAL,
+    UNDEFINED
 };
 
 class ScalarConverter
 {
-private:
-	ScalarConverter(void);
-	~ScalarConverter();
-	ScalarConverter(const ScalarConverter &src);
-	ScalarConverter &operator=(const ScalarConverter &src);
-	
-public:
-	static void convert(const std::string &input);
+  private:
+    ScalarConverter(void);
+    ~ScalarConverter();
+    ScalarConverter(const ScalarConverter &src);
+    ScalarConverter &operator=(const ScalarConverter &src);
+
+  public:
+    static void convert(const std::string &input);
 };
 
 #endif

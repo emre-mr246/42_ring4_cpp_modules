@@ -13,13 +13,13 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <cstdio>
 #include <cstdlib>
 #include <stdexcept>
-#include <cstdio>
 
-Base* generate(void)
+Base *generate(void)
 {
-    FILE* urandom;
+    FILE *urandom;
     int random;
     unsigned char buf;
 
@@ -41,55 +41,58 @@ Base* generate(void)
         return new C();
 }
 
-void identify(Base* p)
+void identify(Base *p)
 {
     if (!p)
     {
         std::cout << "Error: cannot identify null pointer!" << std::endl;
-        return ;
+        return;
     }
-    if (dynamic_cast<A*>(p))
+    if (dynamic_cast<A *>(p))
         std::cout << "Type(*): A" << std::endl;
-    else if (dynamic_cast<B*>(p))
+    else if (dynamic_cast<B *>(p))
         std::cout << "Type(*): B" << std::endl;
-    else if (dynamic_cast<C*>(p))
+    else if (dynamic_cast<C *>(p))
         std::cout << "Type(*): C" << std::endl;
 }
 
-void identify(Base& p)
+void identify(Base &p)
 {
     try
     {
-        A &a = dynamic_cast<A&>(p);
+        A &a = dynamic_cast<A &>(p);
         (void)a;
         std::cout << "Type(&): A" << std::endl;
-        return ;
-    }
-    catch (std::exception &e) {}
-    
-    try
+        return;
+    } catch (std::exception &e)
     {
-        B &b = dynamic_cast<B&>(p);
-        (void)b;
-        std::cout << "Type(&): B" << std::endl;
-        return ;
     }
-    catch (std::exception &e) {}
 
     try
     {
-        C &c = dynamic_cast<C&>(p);
+        B &b = dynamic_cast<B &>(p);
+        (void)b;
+        std::cout << "Type(&): B" << std::endl;
+        return;
+    } catch (std::exception &e)
+    {
+    }
+
+    try
+    {
+        C &c = dynamic_cast<C &>(p);
         (void)c;
         std::cout << "Type(&): C" << std::endl;
-        return ;
+        return;
+    } catch (std::exception &e)
+    {
     }
-    catch (std::exception &e) {}
 }
 
 int main()
 {
     Base *base;
-    
+
     base = generate();
     identify(base);
     identify(*base);
