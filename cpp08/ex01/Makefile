@@ -1,11 +1,11 @@
-NAME        = easyfind
+NAME        = span
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 RM          = rm -rf
 
-SRCS        = main.cpp
-HDRS        = easyfind.hpp
+SRCS        = main.cpp Span.cpp
+HDRS        = Span.hpp
 
 all: $(NAME)
 
