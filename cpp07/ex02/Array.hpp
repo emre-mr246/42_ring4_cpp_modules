@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:38:26 by emgul             #+#    #+#             */
-/*   Updated: 2025/08/09 00:00:00 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:38:26 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/12 19:03:34 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ template <typename T> class Array
   public:
     Array();
     Array(unsigned int n);
-    Array(Array const &src);
-    Array &operator=(Array const &src);
+    Array(const Array &src);
+    Array &operator=(const Array &src);
     ~Array();
 
     unsigned int size() const;
