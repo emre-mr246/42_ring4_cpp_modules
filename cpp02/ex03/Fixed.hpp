@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:12:41 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:12:42 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:12:41 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,35 @@
 class Fixed
 {
   public:
-    Fixed();
-    Fixed(const int value);
-    Fixed(const float value);
-    Fixed(const Fixed &copy);
-    ~Fixed();
-    bool operator>(const Fixed fixed) const;
-    bool operator<(const Fixed fixed) const;
-    bool operator>=(const Fixed fixed) const;
-    bool operator<=(const Fixed fixed) const;
-    bool operator==(const Fixed fixed) const;
-    bool operator!=(const Fixed fixed) const;
-    float operator+(const Fixed fixed) const;
-    float operator-(const Fixed fixed) const;
-    float operator*(const Fixed fixed) const;
-    float operator/(const Fixed fixed) const;
-    Fixed operator++();
-    Fixed operator++(int);
-    Fixed operator--();
-    Fixed operator--(int);
-    static Fixed &min(Fixed &first, Fixed &second);
-    static const Fixed &min(Fixed const &first, Fixed const &second);
-    static Fixed &max(Fixed &first, Fixed &second);
-    static const Fixed &max(Fixed const &first, const Fixed &second);
-    float toFloat() const;
-    int toInt() const;
+	Fixed();
+	Fixed(const int value);
+	Fixed(const float value);
+	Fixed(const Fixed &copy);
+	~Fixed();
+	bool operator>(const Fixed fixed) const;
+	bool operator<(const Fixed fixed) const;
+	bool operator>=(const Fixed fixed) const;
+	bool operator<=(const Fixed fixed) const;
+	bool operator==(const Fixed fixed) const;
+	bool operator!=(const Fixed fixed) const;
+	float operator+(const Fixed fixed) const;
+	float operator-(const Fixed fixed) const;
+	float operator*(const Fixed fixed) const;
+	float operator/(const Fixed fixed) const;
+	Fixed operator++();
+	Fixed operator++(int);
+	Fixed operator--();
+	Fixed operator--(int);
+	static Fixed &min(Fixed &first, Fixed &second);
+	static const Fixed &min(Fixed const &first, Fixed const &second);
+	static Fixed &max(Fixed &first, Fixed &second);
+	static const Fixed &max(Fixed const &first, const Fixed &second);
+	float toFloat() const;
+	int toInt() const;
 
   private:
-    int _value;
-    static const int _numFracBits;
+	int _value;
+	static const int _numFracBits;
 };
 
 std::ostream &operator<<(std::ostream &ostream, const Fixed &number);

@@ -6,7 +6,7 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:38:23 by emgul            #+#    #+#              */
-/*   Updated: 2025/08/19 13:08:42 by emgul            ###   ########.fr       */
+/*   Updated: 2025/08/20 14:25:34 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,25 @@
 
 int main()
 {
-	std::vector<int> v;
-	int i;
+    std::vector<int> v;
+    int i;
 
-	i = 0;
-	while (i < 10)
-	{
-		v.push_back(i);
-		i++;
-	}
+    i = 0;
+    while (i < 10)
+    {
+        v.push_back(i);
+        i++;
+    }
 
-	try
-	{
-		std::cout << *easyfind(v, 3) << std::endl;
-		std::cout << *easyfind(v, 42) << std::endl;
-		std::cout << *easyfind(v, 246) << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+    try
+    {
+        std::cout << *easyfind(v, 3) << std::endl;
+        std::cout << *easyfind(v, 42) << std::endl;
+        std::cout << *easyfind(v, 246) << std::endl;
+    } catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 
-	return (0);
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:38:29 by emgul            #+#    #+#              */
-/*   Updated: 2025/08/12 19:03:43 by emgul            ###   ########.fr       */
+/*   Updated: 2025/08/20 14:25:31 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 Base::~Base()
 {
-    std::cout << "Destructor called for Base" << std::endl;
+	std::cout << "Destructor called for Base" << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:37:20 by emgul             #+#    #+#             */
-/*   Updated: 2025/07/28 13:55:30 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:37:20 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@
 class RobotomyRequestForm : public AForm
 {
   private:
-    std::string _target;
-    std::string _name;
-    virtual void action() const;
+	std::string _target;
+	std::string _name;
+	virtual void action() const;
 
   public:
-    RobotomyRequestForm(void);
-    RobotomyRequestForm(std::string target);
-    ~RobotomyRequestForm();
-    RobotomyRequestForm(const RobotomyRequestForm &src);
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
+	RobotomyRequestForm(void);
+	RobotomyRequestForm(std::string target);
+	~RobotomyRequestForm();
+	RobotomyRequestForm(const RobotomyRequestForm &src);
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
 
-    class RobotizationFailed : public std::exception
-    {
-      public:
-        virtual const char *what() const throw();
-    };
+	class RobotizationFailed : public std::exception
+	{
+	  public:
+		virtual const char *what() const throw();
+	};
 };
 
 #endif

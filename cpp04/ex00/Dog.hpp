@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:11:07 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:11:08 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:11:07 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:34 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 class Dog : public Animal
 {
   public:
-    Dog(void);
-    ~Dog();
-    Dog(const Dog &src);
-    Dog &operator=(const Dog &src);
-    void makeSound(void) const;
+	Dog(void);
+	~Dog();
+	Dog(const Dog &src);
+	Dog &operator=(const Dog &src);
+	void makeSound(void) const;
 };
 
 #endif

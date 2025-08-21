@@ -6,32 +6,32 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:38:23 by emgul            #+#    #+#              */
-/*   Updated: 2025/08/12 19:03:33 by emgul            ###   ########.fr       */
+/*   Updated: 2025/08/20 14:25:34 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include <iostream>
 
-int main(int, char **)
+int main()
 {
-    Array<int> intArray(5);
-    int i;
+	Array<int> intArray(5);
+	int i;
 
-    i = 0;
-    while (i < 5)
-    {
-        intArray[i] = i;
-        i++;
-    }
-    intArray.printArray();
+	i = 0;
+	while (i < 5)
+	{
+		intArray[i] = i;
+		i++;
+	}
+	intArray.printArray();
 
-    Array<int> intArrayCopy(intArray);
-    intArrayCopy.printArray();
+	Array<int> intArrayCopy(intArray);
+	intArrayCopy.printArray();
 
-    intArrayCopy[0] = 42;
-    intArrayCopy.printArray();
-    intArray.printArray();
+	intArrayCopy[0] = 42;
+	intArrayCopy.printArray();
+	intArray.printArray();
 
-    return (0);
+	return (0);
 }

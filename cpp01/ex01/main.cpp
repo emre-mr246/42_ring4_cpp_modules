@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 00:24:02 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/20 00:41:42 by emgul            ###   ########.fr       */
+/*   Created: 2024/10/20 00:24:02 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:36 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int main(void)
 {
-    int horde_size;
-    int i;
+	int horde_size;
+	int i;
 
-    horde_size = 5;
-    Zombie *horde = zombieHorde(horde_size, "Emre");
-    i = 0;
-    while (i < horde_size)
-    {
-        horde[i].announce();
-        i++;
-    }
-    delete[] horde;
-    return (0);
+	horde_size = 5;
+	Zombie *horde = zombieHorde(horde_size, "Emre");
+	i = 0;
+	while (i < horde_size)
+	{
+		horde[i].announce();
+		i++;
+	}
+	delete[] horde;
+	return (0);
 }

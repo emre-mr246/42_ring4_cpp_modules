@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:37:54 by emgul             #+#    #+#             */
-/*   Updated: 2025/07/28 14:27:25 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:37:54 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ AForm::AForm(std::string name, unsigned int gradeRequired,
     : _name(name), _isSigned(false), _gradeToSign(gradeRequired),
       _gradeToExecute(gradeToExecute)
 {
-    if (gradeRequired < 1 || gradeToExecute < 1)
-        throw GradeTooHighException();
-    else if (gradeRequired > 150 || gradeToExecute > 150)
-        throw GradeTooLowException();
+	if (gradeRequired < 1 || gradeToExecute < 1)
+		throw GradeTooHighException();
+	else if (gradeRequired > 150 || gradeToExecute > 150)
+		throw GradeTooLowException();
 }
 
 AForm::~AForm()
@@ -43,78 +43,78 @@ AForm::AForm(const AForm &src)
 
 AForm &AForm::operator=(const AForm &src)
 {
-    if (this == &src)
-        return (*this);
-    this->_isSigned = src._isSigned;
-    return (*this);
+	if (this == &src)
+		return (*this);
+	this->_isSigned = src._isSigned;
+	return (*this);
 }
 
 std::ostream &operator<<(std::ostream &os, AForm const &src)
 {
-    os << src.getName() << ", form is "
-       << (src.getIsSigned() ? "signed" : "not signed") << ", requires grade "
-       << src.getGradeRequired() << " to sign and grade "
-       << src.getGradeToExecute() << " to execute.";
-    return (os);
+	os << src.getName() << ", form is "
+	   << (src.getIsSigned() ? "signed" : "not signed") << ", requires grade "
+	   << src.getGradeRequired() << " to sign and grade "
+	   << src.getGradeToExecute() << " to execute.";
+	return (os);
 }
 
 std::string AForm::getName() const
 {
-    return (this->_name);
+	return (this->_name);
 }
 
 unsigned int AForm::getGradeRequired() const
 {
-    return (this->_gradeToSign);
+	return (this->_gradeToSign);
 }
 
 unsigned int AForm::getGradeToExecute() const
 {
-    return (this->_gradeToExecute);
+	return (this->_gradeToExecute);
 }
 
 bool AForm::getIsSigned() const
 {
-    return (this->_isSigned);
+	return (this->_isSigned);
 }
 
 void AForm::setIsSigned(bool isSigned)
 {
-    this->_isSigned = isSigned;
+	this->_isSigned = isSigned;
 }
 
 void AForm::beSigned()
 {
-    this->_isSigned = true;
-    std::cout << "\"" << this->_name << "\" signed." << std::endl;
+	this->_isSigned = true;
+	std::cout << "\"" << this->_name << "\" signed." << std::endl;
 }
 
 void AForm::execute(Bureaucrat const &executor) const
 {
-    if (!this->_isSigned)
-    {
-        throw IsNotSignedException();
-    }
-    if (executor.getGrade() > this->_gradeToExecute)
-    {
-        throw GradeTooLowException();
-    }
-    std::cout << executor.getName() << " executes \"" << this->_name << "\"."
-              << std::endl;
-    action();
+	if (!this->_isSigned)
+	{
+		throw IsNotSignedException();
+	}
+	if (executor.getGrade() > this->_gradeToExecute)
+	{
+		throw GradeTooLowException();
+	}
+	std::cout << executor.getName() << " executes \"" << this->_name << "\"."
+	          << std::endl;
+	action();
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-    return ("Grade too high!");
+	return ("Grade too high!");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-    return ("Grade too low!");
+	return ("Grade too low!");
 }
 
 const char *AForm::IsNotSignedException::what() const throw()
 {
-    return ("Form is not signed!");
+	return ("Form is not signed!");
 }

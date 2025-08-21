@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:10:24 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:10:25 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:10:24 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:33 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 class WrongAnimal
 {
   public:
-    WrongAnimal(void);
-    virtual ~WrongAnimal();
-    WrongAnimal(const WrongAnimal &src);
-    WrongAnimal &operator=(const WrongAnimal &src);
-    void makeSound(void) const;
+	WrongAnimal(void);
+	virtual ~WrongAnimal();
+	WrongAnimal(const WrongAnimal &src);
+	WrongAnimal &operator=(const WrongAnimal &src);
+	void makeSound(void) const;
 
   protected:
-    std::string _type;
+	std::string _type;
 };
 
 #endif

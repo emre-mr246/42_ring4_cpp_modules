@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:37:13 by emgul             #+#    #+#             */
-/*   Updated: 2025/07/28 12:37:15 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:37:13 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@
 class ShrubberyCreationForm : public AForm
 {
   private:
-    std::string _target;
-    virtual void action() const;
+	std::string _target;
+	virtual void action() const;
 
   public:
-    ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string target);
-    ~ShrubberyCreationForm();
-    ShrubberyCreationForm(const ShrubberyCreationForm &src);
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
+	ShrubberyCreationForm(void);
+	ShrubberyCreationForm(std::string target);
+	~ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm &src);
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 
-    class ShrubberyCreationFailed : public std::exception
-    {
-      public:
-        virtual const char *what() const throw();
-    };
+	class ShrubberyCreationFailed : public std::exception
+	{
+	  public:
+		virtual const char *what() const throw();
+	};
 };
 
 #endif

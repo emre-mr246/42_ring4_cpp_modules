@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:12:35 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:12:36 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:12:35 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ Point::~Point()
 
 Point &Point::operator=(const Point &src)
 {
-    if (this == &src)
-        return (*this);
-    return (*this);
+	if (this == &src)
+		return (*this);
+	return (*this);
 }
 
 const Fixed &Point::getX(void) const
 {
-    return (this->_x);
+	return (this->_x);
 }
 
 const Fixed &Point::getY(void) const
 {
-    return (this->_y);
+	return (this->_y);
 }
 
 std::ostream &operator<<(std::ostream &ostream, Point const point)
 {
-    ostream << "_x: " << point.getX() << " / _y: " << point.getY() << std::endl;
-    return (ostream);
+	ostream << "_x: " << point.getX() << " / _y: " << point.getY() << std::endl;
+	return (ostream);
 }

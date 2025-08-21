@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:11:00 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:11:01 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:11:00 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:34 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 class Animal
 {
   public:
-    Animal(void);
-    virtual ~Animal();
-    Animal(const Animal &src);
-    Animal &operator=(const Animal &src);
-    virtual void makeSound(void) const;
+	Animal(void);
+	virtual ~Animal();
+	Animal(const Animal &src);
+	Animal &operator=(const Animal &src);
+	virtual void makeSound(void) const;
 
   protected:
-    std::string _type;
+	std::string _type;
 };
 
 #endif

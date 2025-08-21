@@ -6,10 +6,8 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:38:26 by emgul            #+#    #+#              */
-/*   Updated: 2025/08/12 19:03:42 by emgul            ###   ########.fr       */
+/*   Updated: 2025/08/20 14:25:31 by emgul            ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
-
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
@@ -21,24 +19,24 @@
 
 enum e_type
 {
-    CHAR,
-    INT,
-    FLOAT,
-    DOUBLE,
-    SPECIAL,
-    UNDEFINED
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	SPECIAL,
+	UNDEFINED
 };
 
 class ScalarConverter
 {
   private:
-    ScalarConverter(void);
-    ~ScalarConverter();
-    ScalarConverter(const ScalarConverter &src);
-    ScalarConverter &operator=(const ScalarConverter &src);
+	ScalarConverter(void);
+	~ScalarConverter();
+	ScalarConverter(const ScalarConverter &src);
+	ScalarConverter &operator=(const ScalarConverter &src);
 
   public:
-    static void convert(const std::string &input);
+	static void convert(const std::string &input);
 };
 
 #endif

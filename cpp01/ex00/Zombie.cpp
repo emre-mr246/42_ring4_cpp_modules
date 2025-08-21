@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 20:36:10 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/20 00:20:12 by emgul            ###   ########.fr       */
+/*   Created: 2024/10/19 20:36:10 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:36 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 Zombie::Zombie(const std::string &name)
 {
-    this->_name = name;
-    std::cout << "Zombie \"" << this->_name << "\" created!" << std::endl;
+	this->_name = name;
+	std::cout << "Zombie \"" << this->_name << "\" created!" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << "Zombie \"" << this->_name << "\" destroyed!" << std::endl;
+	std::cout << "Zombie \"" << this->_name << "\" destroyed!" << std::endl;
 }
 
 void Zombie::announce()
 {
-    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

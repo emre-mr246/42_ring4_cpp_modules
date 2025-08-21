@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 12:00:32 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/20 12:07:04 by emgul            ###   ########.fr       */
+/*   Created: 2024/10/20 12:00:32 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:36 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class Weapon
 {
   public:
-    Weapon(const std::string &type);
-    ~Weapon(void);
-    const std::string &getType(void);
-    void setType(const std::string &name);
+	Weapon(const std::string &type);
+	~Weapon(void);
+	const std::string &getType(void);
+	void setType(const std::string &name);
 
   private:
-    std::string _type;
+	std::string _type;
 };
 
 #endif

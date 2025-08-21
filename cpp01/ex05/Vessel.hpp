@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Vessel.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:13:31 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:13:32 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:13:31 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:36 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class Vessel
 {
   public:
-    Vessel(void);
-    ~Vessel(void);
-    void complain(std::string level);
+	Vessel(void);
+	~Vessel(void);
+	void complain(std::string level);
 
   private:
-    void debug(void);
-    void info(void);
-    void warning(void);
-    void error(void);
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 };
 
 #endif

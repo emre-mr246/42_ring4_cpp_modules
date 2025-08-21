@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 12:12:14 by emgul             #+#    #+#             */
-/*   Updated: 2025/07/28 15:43:43 by emgul            ###   ########.fr       */
+/*   Created: 2025/07/28 12:12:14 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 
 int main()
 {
-    Bureaucrat emre("Emre", 1);
-    Intern intern;
+	Bureaucrat emre("Emre", 1);
+	Intern intern;
 
-    try
-    {
-        AForm *form = intern.makeForm("robotomy request", "Emre");
-        emre.signForm(*form);
-        emre.executeForm(*form);
-        delete (form);
-    } catch (const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    return (0);
+	try
+	{
+		AForm *form = intern.makeForm("robotomy request", "Emre");
+		emre.signForm(*form);
+		emre.executeForm(*form);
+		delete (form);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	return (0);
 }

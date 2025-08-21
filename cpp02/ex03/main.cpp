@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 10:12:37 by emgul             #+#    #+#             */
-/*   Updated: 2025/01/13 10:12:38 by emgul            ###   ########.fr       */
+/*   Created: 2025/01/13 10:12:37 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:35 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ bool bsp(const Point a, const Point b, const Point c, const Point point);
 
 int main(void)
 {
-    const Point a;
-    const Point b(10, 0);
-    const Point c(0, 5);
-    const Point point(1, 4);
+	const Point a;
+	const Point b(10, 0);
+	const Point c(0, 5);
+	const Point point(1, 4);
 
-    std::cout << bsp(a, b, c, point) << std::endl;
+	std::cout << bsp(a, b, c, point) << std::endl;
 
-    return (0);
+	return (0);
 }

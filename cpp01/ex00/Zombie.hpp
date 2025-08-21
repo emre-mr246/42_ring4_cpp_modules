@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emgul <emgul@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 20:33:42 by emgul             #+#    #+#             */
-/*   Updated: 2024/10/20 00:21:37 by emgul            ###   ########.fr       */
+/*   Created: 2024/10/19 20:33:42 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:36 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class Zombie
 {
   public:
-    Zombie(const std::string &name);
-    ~Zombie(void);
-    void announce(void);
+	Zombie(const std::string &name);
+	~Zombie(void);
+	void announce(void);
 
   private:
-    std::string _name;
+	std::string _name;
 };
 
 Zombie *newZombie(std::string name);

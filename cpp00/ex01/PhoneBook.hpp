@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/19 11:51:19 by emgul            #+#    #+#              */
+/*   Updated: 2025/08/20 14:25:32 by emgul            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
@@ -13,24 +25,24 @@ typedef std::string str;
 class PhoneBook
 {
   public:
-    PhoneBook();
-    ~PhoneBook();
+	PhoneBook();
+	~PhoneBook();
 
-    void add_contact();
-    void search_contact();
-    void print_contact_details(int index);
-    void display_contacts(int contactCount);
+	void add_contact();
+	void search_contact();
+	void print_contact_details(int index);
+	void display_contacts(int contactCount);
 
   private:
-    static const int max_contacts = 8;
-    int contactIndex;
-    int contactCount;
-    Contact array[max_contacts];
+	static const int max_contacts = 8;
+	int contactIndex;
+	int contactCount;
+	Contact array[max_contacts];
 
-    // PhoneBook Utils
-    void print_header();
-    str truncate(const str &str);
-    bool is_valid_index(const str &input, int index);
+	// PhoneBook Utils
+	void print_header();
+	str truncate(const str &str);
+	bool is_valid_index(const str &input, int index);
 };
 
 // UTILS

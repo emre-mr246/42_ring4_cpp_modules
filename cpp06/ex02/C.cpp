@@ -6,7 +6,7 @@
 /*   By: emgul <emgul@student.42istanbul.com.tr>    #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:38:29 by emgul            #+#    #+#              */
-/*   Updated: 2025/08/12 19:03:43 by emgul            ###   ########.fr       */
+/*   Updated: 2025/08/20 14:25:31 by emgul            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 C::C(void)
 {
-    std::cout << "Default constructor called for C" << std::endl;
+	std::cout << "Default constructor called for C" << std::endl;
 }
 
 C::~C()
 {
-    std::cout << "Destructor called for C" << std::endl;
+	std::cout << "Destructor called for C" << std::endl;
 }
 
 C::C(const C &src)
 {
-    (void)src;
-    std::cout << "Copy constructor called for C" << std::endl;
+	(void)src;
+	std::cout << "Copy constructor called for C" << std::endl;
 }
