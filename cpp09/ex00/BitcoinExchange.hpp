@@ -15,8 +15,8 @@
 #include <fstream>
 #include <iostream>
 #include <map>
-#include <stdexcept>
-#include <string>
+#include <cstdlib>
+#include <sstream>
 
 class BitcoinExchange
 {
@@ -25,21 +25,19 @@ class BitcoinExchange
 
     void parseDatabaseContent(std::ifstream &dbFile);
     void processInputLine(const std::string &line) const;
-    void parseAndValidateLine(const std::string &line, std::string &date,
-                              double &value) const;
+    void parseAndValidateLine(const std::string &line, std::string &date, double &value) const;
     double findClosestRate(const std::string &date) const;
     void validateInputDate(const std::string &date) const;
-    void validateDateFormat(const std::string &date, int &year, int &month,
-                            int &day) const;
+    void validateDateFormat(const std::string &date, int &year, int &month, int &day) const;
     void validateInputValue(double value) const;
 
   public:
-    BitcoinExchange(const std::string &dbFilename);
+    BitcoinExchange(const std::string &dbFile);
     ~BitcoinExchange();
     BitcoinExchange(const BitcoinExchange &src);
     BitcoinExchange &operator=(const BitcoinExchange &src);
 
-    void processInputFile(const std::string &inputFilename) const;
+    void processInputFile(const std::string &inputFile) const;
 
     class CouldNotOpenFileException : public std::exception
     {

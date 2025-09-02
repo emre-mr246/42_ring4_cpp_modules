@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <cstdlib>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <limits>
-#include <sstream>
 
 BitcoinExchange::BitcoinExchange(const std::string &dbFilename)
 {
@@ -44,6 +38,23 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
     return (*this);
 }
 
+void BitcoinExchange::parseDatabaseContent(std::ifstream &dbFile)
+{
+    std::istringstream iss;
+    std::string line;
+    std::string date;
+    double rate;
+
+    std::getline(dbFile, line);
+    while (std::getline(dbFile, line))
+    {
+        iss.clear();
+        iss.str(line);
+        if (std::getline(iss, date, ',') && (iss >> rate))
+            this->exchangeRates[date] = rate;
+    }
+}
+
 void BitcoinExchange::processInputFile(const std::string &inputFilename) const
 {
     std::string line;
@@ -55,6 +66,22 @@ void BitcoinExchange::processInputFile(const std::string &inputFilename) const
     std::getline(inputFile, line);
     while (std::getline(inputFile, line))
         processInputLine(line);
+}
+
+double BitcoinExchange::findClosestRate(const std::string &date) const
+{
+    std::map<std::string, double>::const_iterator it;
+
+    if (exchangeRates.empty())
+        throw(NoRateFoundException());
+    it = exchangeRates.find(date);
+    if (it != exchangeRates.end())
+        return (it->second);
+    it = exchangeRates.lower_bound(date);
+    if (it == exchangeRates.begin())
+        throw(NoRateFoundException());
+    it--;
+    return (it->second);
 }
 
 void BitcoinExchange::processInputLine(const std::string &line) const
@@ -74,6 +101,48 @@ void BitcoinExchange::processInputLine(const std::string &line) const
     {
         std::cerr << "Error: " << e.what() << std::endl;
     }
+}
+
+void BitcoinExchange::validateInputValue(double value) const
+{
+    if (value < 0)
+        throw(NotAPositiveNumberException());
+    if (value > 1000)
+        throw(NumberTooLargeException());
+}
+
+void BitcoinExchange::validateDateFormat(const std::string &date, int &day, int &month, int &year) const
+{
+    char dash1;
+    char dash2;
+    std::istringstream ss;
+
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+        throw(InvalidDateException());
+    ss.str(date);
+    ss >> year >> dash1 >> month >> dash2 >> day;
+    if (ss.fail() || dash1 != '-' || dash2 != '-')
+        throw(InvalidDateException());
+}
+
+void BitcoinExchange::validateInputDate(const std::string &date) const
+{
+    int year;
+    int month;
+    int day;
+    bool isLeap;
+
+    validateDateFormat(date, day, month, year);
+    if (year < 2009 || month < 1 || month > 12 || day < 1 || day > 31)
+        throw(InvalidDateException());
+    if (month == 2)
+    {
+        isLeap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        if (day > (isLeap ? 29 : 28))
+            throw(InvalidDateException());
+    }
+    else if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+        throw(InvalidDateException());
 }
 
 void BitcoinExchange::parseAndValidateLine(const std::string &line, std::string &date, double &value) const
@@ -103,99 +172,23 @@ void BitcoinExchange::parseAndValidateLine(const std::string &line, std::string 
     validateInputValue(value);
 }
 
-void BitcoinExchange::parseDatabaseContent(std::ifstream &dbFile)
-{
-    std::istringstream iss;
-    std::string line;
-    std::string date;
-    double rate;
-
-    std::getline(dbFile, line);
-    while (std::getline(dbFile, line))
-    {
-        iss.clear();
-        iss.str(line);
-        if (std::getline(iss, date, ',') && (iss >> rate))
-            this->exchangeRates[date] = rate;
-    }
-}
-
-double BitcoinExchange::findClosestRate(const std::string &date) const
-{
-    std::map<std::string, double>::const_iterator it;
-
-    if (exchangeRates.empty())
-        throw(NoRateFoundException());
-    it = exchangeRates.find(date);
-    if (it != exchangeRates.end())
-        return (it->second);
-    it = exchangeRates.lower_bound(date);
-    if (it == exchangeRates.begin())
-        throw(NoRateFoundException());
-    it--;
-    return (it->second);
-}
-
-void BitcoinExchange::validateInputDate(const std::string &date) const
-{
-    int year;
-    int month;
-    int day;
-    bool isLeap;
-
-    validateDateFormat(date, year, month, day);
-    if (year < 2009 || month < 1 || month > 12 || day < 1 || day > 31)
-        throw(InvalidDateException());
-    if (month == 2)
-    {
-        isLeap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-        if (day > (isLeap ? 29 : 28))
-            throw(InvalidDateException());
-    }
-    else if ((month == 4 || month == 6 || month == 9 || month == 11) &&
-             day > 30)
-        throw(InvalidDateException());
-}
-
-void BitcoinExchange::validateDateFormat(const std::string &date, int &year, int &month, int &day) const
-{
-    char dash1;
-    char dash2;
-    std::istringstream ss;
-
-    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
-        throw(InvalidDateException());
-    ss.str(date);
-    ss >> year >> dash1 >> month >> dash2 >> day;
-    if (ss.fail() || dash1 != '-' || dash2 != '-')
-        throw(InvalidDateException());
-}
-
-void BitcoinExchange::validateInputValue(double value) const
-{
-    if (value < 0)
-        throw(NotAPositiveNumberException());
-    if (value > 1000)
-        throw(NumberTooLargeException());
-}
-
 const char *BitcoinExchange::CouldNotOpenFileException::what() const throw()
 {
-    return ("could not open file.");
+    return ("Error: could not open file.");
 }
 const char *BitcoinExchange::InvalidDateException::what() const throw()
 {
-    return ("bad input.");
+    return ("Error: bad input.");
 }
 const char *BitcoinExchange::NotAPositiveNumberException::what() const throw()
 {
-    return ("not a positive number.");
+    return ("Error: not a positive number.");
 }
 const char *BitcoinExchange::NumberTooLargeException::what() const throw()
 {
-    return ("too large a number.");
+    return ("Error: too large a number.");
 }
 const char *BitcoinExchange::NoRateFoundException::what() const throw()
 {
-    return ("no rate found for the given date.");
+    return ("Error: no rate found for the given date.");
 }

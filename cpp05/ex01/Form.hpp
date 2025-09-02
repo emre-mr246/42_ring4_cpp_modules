@@ -30,8 +30,7 @@ class Form
 
   public:
 	Form(void);
-	Form(const std::string name, unsigned int gradeToSign,
-	     unsigned int gradeToExecute);
+	Form(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
 	~Form();
 	Form(const Form &src);
 	Form &operator=(const Form &src);

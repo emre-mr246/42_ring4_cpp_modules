@@ -71,7 +71,7 @@ void RPN::pushNumber(std::stack<long long> &stack, const std::string &token)
     size_t i = 0;
 
     if (!isValidNumber(token))
-        throw(std::runtime_error("Error: Invalid number format"));
+        throw(std::runtime_error("Error: invalid number format"));
     if (token[0] == '-')
     {
         isNegative = true;
@@ -100,7 +100,7 @@ long long RPN::performOperation(std::stack<long long> &stack, const std::string 
     long long result;
 
     if (stack.size() < 2)
-        throw(std::runtime_error("Error: Insufficient operands for operation"));
+        throw(std::runtime_error("Error: insufficient operands for operation"));
     secondOperand = stack.top();
     stack.pop();
     firstOperand = stack.top();
@@ -115,11 +115,11 @@ long long RPN::performOperation(std::stack<long long> &stack, const std::string 
     else if (op == "/")
     {
         if (secondOperand == 0)
-            throw(std::runtime_error("Error: Division by zero"));
+            throw(std::runtime_error("Error: division by zero"));
         result = firstOperand / secondOperand;
     }
     else
-        throw(std::runtime_error("Error: Unknown operator"));
+        throw(std::runtime_error("Error: unknown operator"));
     stack.push(result);
     return (result);
 }
@@ -131,7 +131,7 @@ long long RPN::calculate(const std::string &expression)
     std::string token;
 
     if (expression.empty())
-        throw(std::runtime_error("Error: Empty expression"));
+        throw(std::runtime_error("Error: empty expression"));
     while (iss >> token)
     {
         if (isValidNumber(token))
@@ -139,11 +139,11 @@ long long RPN::calculate(const std::string &expression)
         else if (isValidOperator(token))
             performOperation(stack, token);
         else
-            throw(std::runtime_error("Error: Invalid token"));
+            throw(std::runtime_error("Error: invalid token"));
     }
     if (stack.empty())
-        throw(std::runtime_error("Error: No result computed"));
+        throw(std::runtime_error("Error: no result"));
     if (stack.size() != 1)
-        throw(std::runtime_error("Error: Invalid RPN expression - too many operands"));
+        throw(std::runtime_error("Error: too many operands"));
     return (stack.top());
 }
